@@ -24,13 +24,15 @@ class CreationManager: ObservableObject {
     }
     @ObservedObject var databaseManager = DatabaseManager.shared
     
-    public func addTransaction(titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: (String, String) -> Void){
+    public func addTransaction(titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
         let peopleIncludedString = CreationViewModel.shared.pubSelectedPeopleID.compactMap({String($0)}).joined(separator: ",")
         let messagePrefix = transactionTypeValue == 0 ? "Expense" : "Income"
         if let db = databaseManager.db, let transactions = databaseManager.transactions{
             do{
                 try db.run(transactions.insert(databaseManager.title <- titleValue, databaseManager.amount <- amountValue, databaseManager.category <- categoryValue, databaseManager.description <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString,  databaseManager.createdDate <- createdDateValue, databaseManager.updatedDate <- updatedDateValue))
-                completionHandler("Success", "\(messagePrefix) is added successfully")
+                DispatchQueue.main.async {
+                    completionHandler("Success", "\(messagePrefix) is added successfully")
+                }
             }catch{
                 completionHandler("Failed", "Failed to add \(messagePrefix)")
                 print(error.localizedDescription)

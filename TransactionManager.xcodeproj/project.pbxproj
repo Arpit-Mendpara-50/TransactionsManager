@@ -253,9 +253,7 @@
 			children = (
 				7659191929681E94001499E1 /* ThemeSwitch.swift */,
 				766ABDB329E72801007D9281 /* RowView.swift */,
-				766ABDB529E7601B007D9281 /* TransactionRowView.swift */,
 				7649D8B42A280C190005F1B2 /* DatePickerView.swift */,
-				76F1C7722B645FC40067ADD6 /* IntTransactionRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,6 +320,7 @@
 				76D1B8E429F20050007C0532 /* CreationView.swift */,
 				76D1B8EF29F32B72007C0532 /* CreationViewModel.swift */,
 				7609913129F5839F0005FE95 /* CreationManager.swift */,
+				766ABDB529E7601B007D9281 /* TransactionRowView.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -332,6 +331,7 @@
 				76F1C7662B6440B90067ADD6 /* InternationalTransactionView.swift */,
 				76F1C76A2B64427E0067ADD6 /* InternationalCreationViewModel.swift */,
 				76F1C76C2B6442910067ADD6 /* InternationalCreationManager.swift */,
+				76F1C7722B645FC40067ADD6 /* IntTransactionRowView.swift */,
 			);
 			path = International;
 			sourceTree = "<group>";

@@ -12,6 +12,7 @@ struct InternationalTransactionView: View {
     @ObservedObject var viewModel = InternationalCreationViewModel.shared
     @ObservedObject var manager = InternationalCreationManager.shared
     @ObservedObject var transactionsManager = TransactionsManager.shared
+    @ObservedObject var sliderMessageManager = SliderMessageManager.shared
     
     @Binding var isShowView: Bool
     @State var showCalendarView = false
@@ -31,6 +32,7 @@ struct InternationalTransactionView: View {
                         descriptionView
                         dateView
                         saveButton
+                        Spacer().frame(height: ScreenSize.safeBottom())
                     }
                 }
                 Spacer()
@@ -210,9 +212,22 @@ struct InternationalTransactionView: View {
     
     var saveButton: some View{
         Button(action: {
-            manager.addIntTransaction(titleValue: viewModel.pubTitleString, baseAmountValue: viewModel.pubBaseAmountString, conversionAmountValue: viewModel.pubConversionAmountString, descriptionValue: viewModel.pubDescriptionString, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format())
-            viewModel.clearFormData()
-            transactionsManager.getInternationalTransactionsList()
+            manager.addIntTransaction(titleValue: viewModel.pubTitleString, baseAmountValue: viewModel.pubBaseAmountString, conversionAmountValue: viewModel.pubConversionAmountString, descriptionValue: viewModel.pubDescriptionString, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                    if title == "Success" {
+                        viewModel.clearFormData()
+                        sliderMessageManager.pubSliderTitle = title
+                        sliderMessageManager.pubSliderMessage = message
+                        transactionsManager.getInternationalTransactionsList()
+                        withAnimation {
+                            sliderMessageManager.pubShowSliderMessageView = true
+                            isShowView = false
+                        }
+                    } else {
+                        sliderMessageManager.pubSliderTitle = title
+                        sliderMessageManager.pubSliderMessage = message
+                        sliderMessageManager.pubShowSliderMessageView = true
+                    }
+            })
         }, label: {
             HStack(spacing: 10){
                 Spacer()

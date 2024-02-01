@@ -90,6 +90,7 @@ struct HomeView: View {
                         .frame(height: 130)
                         .padding(.horizontal)*/
                         PeopleListView()
+                        Spacer().frame(height: ScreenSize.safeBottom())
                         /*
                         HStack {
                             Text("Transactions").font(.system(size: 30, weight: .bold))

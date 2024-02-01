@@ -39,6 +39,7 @@ struct CreationView: View {
                         }
                         dateView
                         saveButton
+                        Spacer().frame(height: ScreenSize.safeBottom())
                     }
                 }
                 Spacer()
@@ -342,8 +343,15 @@ struct CreationView: View {
                     viewModel.clearFormData()
                     sliderMessageManager.pubSliderTitle = title
                     sliderMessageManager.pubSliderMessage = message
-                    sliderMessageManager.pubShowSliderMessageView = true
                     transactionsManager.getTransactionsList()
+                    withAnimation {
+                        sliderMessageManager.pubShowSliderMessageView = true
+                        isShowView = false
+                    }
+                } else {
+                    sliderMessageManager.pubSliderTitle = title
+                    sliderMessageManager.pubSliderMessage = message
+                    sliderMessageManager.pubShowSliderMessageView = true
                 }
             })
         }, label: {

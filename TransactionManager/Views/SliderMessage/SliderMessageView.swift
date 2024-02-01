@@ -17,13 +17,13 @@ struct SliderMessageView: View {
                 HStack {
                 VStack {
                     
-                }.frame(width: 10, height: ScreenSize.safeTop() + 10)
+                }.frame(width: 10, height: 10)
                     .background(title == "Success" ? Color.green : Color.red)
                     .shadow(radius: 5)
                     Spacer()
                     VStack {
                         
-                    }.frame(width: 10, height: ScreenSize.safeTop() + 10)
+                    }.frame(width: 10, height: 10)
                         .background(title == "Success" ? Color.green : Color.red)
                         .shadow(radius: 4)
                 }
@@ -46,7 +46,9 @@ struct SliderMessageView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                closeAction?()
+                withAnimation {
+                    closeAction?()
+                }
             })
         }
         .ignoresSafeArea(edges: .bottom)
