@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101108E6D434A39B0F094494 /* Pods_TransactionManager_TransactionManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9EAD15F72F0B55BEE1BE38 /* Pods_TransactionManager_TransactionManagerUITests.framework */; };
+		34C8BB630B12F2B168CD9608 /* Pods_TransactionManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950C0E467A8D1235D75833CB /* Pods_TransactionManager.framework */; };
+		7609913229F5839F0005FE95 /* CreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7609913129F5839F0005FE95 /* CreationManager.swift */; };
+		7649D8B52A280C190005F1B2 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7649D8B42A280C190005F1B2 /* DatePickerView.swift */; };
 		765918EC29681BCB001499E1 /* TransactionManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765918EB29681BCB001499E1 /* TransactionManagerApp.swift */; };
 		765918EE29681BCB001499E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765918ED29681BCB001499E1 /* ContentView.swift */; };
 		765918F029681BCF001499E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 765918EF29681BCF001499E1 /* Assets.xcassets */; };
@@ -14,6 +18,42 @@
 		765918FD29681BCF001499E1 /* TransactionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765918FC29681BCF001499E1 /* TransactionManagerTests.swift */; };
 		7659190729681BCF001499E1 /* TransactionManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659190629681BCF001499E1 /* TransactionManagerUITests.swift */; };
 		7659190929681BCF001499E1 /* TransactionManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659190829681BCF001499E1 /* TransactionManagerUITestsLaunchTests.swift */; };
+		7659191629681D7A001499E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659191529681D7A001499E1 /* HomeView.swift */; };
+		7659191A29681E94001499E1 /* ThemeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659191929681E94001499E1 /* ThemeSwitch.swift */; };
+		7659191D29682F00001499E1 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659191C29682F00001499E1 /* Colour.swift */; };
+		7659192029682F5F001499E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659191F29682F5F001499E1 /* Constants.swift */; };
+		7659192229682F7D001499E1 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659192129682F7D001499E1 /* UserDefaultsUtils.swift */; };
+		76591924296833FB001499E1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76591923296833FB001499E1 /* Utils.swift */; };
+		7659192629695A16001499E1 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659192529695A16001499E1 /* CategoryPickerView.swift */; };
+		766ABDB429E72801007D9281 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB329E72801007D9281 /* RowView.swift */; };
+		766ABDB629E7601B007D9281 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB529E7601B007D9281 /* TransactionRowView.swift */; };
+		766ABDB829E761DD007D9281 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB729E761DD007D9281 /* Shapes.swift */; };
+		766ABDBA29E76559007D9281 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB929E76559007D9281 /* Structures.swift */; };
+		76C6BE2B2A2561D000ED17C1 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */; };
+		76C6BE2D2A25791800ED17C1 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */; };
+		76C6BE2F2A25792900ED17C1 /* TransactionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */; };
+		76D1B8DE29F071EE007C0532 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1B8DD29F071EE007C0532 /* DatabaseManager.swift */; };
+		76D1B8E029F0754E007C0532 /* EntityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1B8DF29F0754E007C0532 /* EntityModels.swift */; };
+		76D1B8E229F09E67007C0532 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1B8E129F09E67007C0532 /* CategoryManager.swift */; };
+		76D1B8E529F20050007C0532 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1B8E429F20050007C0532 /* CreationView.swift */; };
+		76D1B8F029F32B72007C0532 /* CreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1B8EF29F32B72007C0532 /* CreationViewModel.swift */; };
+		76F1C75E2B6409E90067ADD6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C75D2B6409E90067ADD6 /* ImagePicker.swift */; };
+		76F1C7612B640A2B0067ADD6 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7602B640A2B0067ADD6 /* ImagePickerManager.swift */; };
+		76F1C7632B6411750067ADD6 /* PeopleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7622B6411750067ADD6 /* PeopleManager.swift */; };
+		76F1C7652B6418590067ADD6 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7642B6418590067ADD6 /* PeopleViewModel.swift */; };
+		76F1C7672B6440B90067ADD6 /* InternationalTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7662B6440B90067ADD6 /* InternationalTransactionView.swift */; };
+		76F1C76B2B64427E0067ADD6 /* InternationalCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C76A2B64427E0067ADD6 /* InternationalCreationViewModel.swift */; };
+		76F1C76D2B6442910067ADD6 /* InternationalCreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C76C2B6442910067ADD6 /* InternationalCreationManager.swift */; };
+		76F1C7712B645E970067ADD6 /* IntTransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7702B645E970067ADD6 /* IntTransactionsListView.swift */; };
+		76F1C7732B645FC40067ADD6 /* IntTransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7722B645FC40067ADD6 /* IntTransactionRowView.swift */; };
+		76F1C7752B69F31B0067ADD6 /* SliderMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7742B69F31B0067ADD6 /* SliderMessageView.swift */; };
+		76F1C7782B6B2F000067ADD6 /* SliderMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7772B6B2F000067ADD6 /* SliderMessageManager.swift */; };
+		76F1C77A2B6B32B30067ADD6 /* PeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7792B6B32B30067ADD6 /* PeopleListView.swift */; };
+		76FD199B2B5DEBF100131C28 /* TransactionTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199A2B5DEBF100131C28 /* TransactionTotalView.swift */; };
+		76FD199E2B5DF54B00131C28 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199D2B5DF54B00131C28 /* PeopleView.swift */; };
+		76FD19A02B5F273A00131C28 /* PeopleCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */; };
+		76FD19A22B5F2E3200131C28 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD19A12B5F2E3200131C28 /* BlurView.swift */; };
+		FE167DFBBB0BF0D0A8631366 /* Pods_TransactionManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEA83828FD906961B20DD3A /* Pods_TransactionManagerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22C22C0E7A982B5CC7C0B874 /* Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3BEA83828FD906961B20DD3A /* Pods_TransactionManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransactionManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7609913129F5839F0005FE95 /* CreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationManager.swift; sourceTree = "<group>"; };
+		7649D8B42A280C190005F1B2 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		765918E829681BCB001499E1 /* TransactionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765918EB29681BCB001499E1 /* TransactionManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManagerApp.swift; sourceTree = "<group>"; };
 		765918ED29681BCB001499E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +88,48 @@
 		7659190229681BCF001499E1 /* TransactionManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7659190629681BCF001499E1 /* TransactionManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManagerUITests.swift; sourceTree = "<group>"; };
 		7659190829681BCF001499E1 /* TransactionManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7659191529681D7A001499E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7659191929681E94001499E1 /* ThemeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitch.swift; sourceTree = "<group>"; };
+		7659191C29682F00001499E1 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		7659191F29682F5F001499E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7659192129682F7D001499E1 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		76591923296833FB001499E1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7659192529695A16001499E1 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
+		766ABDB329E72801007D9281 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		766ABDB529E7601B007D9281 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
+		766ABDB729E761DD007D9281 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		766ABDB929E76559007D9281 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
+		76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsManager.swift; sourceTree = "<group>"; };
+		76D1B8DD29F071EE007C0532 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		76D1B8DF29F0754E007C0532 /* EntityModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModels.swift; sourceTree = "<group>"; };
+		76D1B8E129F09E67007C0532 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		76D1B8E429F20050007C0532 /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
+		76D1B8EF29F32B72007C0532 /* CreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewModel.swift; sourceTree = "<group>"; };
+		76F1C75D2B6409E90067ADD6 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		76F1C7602B640A2B0067ADD6 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		76F1C7622B6411750067ADD6 /* PeopleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleManager.swift; sourceTree = "<group>"; };
+		76F1C7642B6418590067ADD6 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
+		76F1C7662B6440B90067ADD6 /* InternationalTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternationalTransactionView.swift; sourceTree = "<group>"; };
+		76F1C76A2B64427E0067ADD6 /* InternationalCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternationalCreationViewModel.swift; sourceTree = "<group>"; };
+		76F1C76C2B6442910067ADD6 /* InternationalCreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternationalCreationManager.swift; sourceTree = "<group>"; };
+		76F1C7702B645E970067ADD6 /* IntTransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntTransactionsListView.swift; sourceTree = "<group>"; };
+		76F1C7722B645FC40067ADD6 /* IntTransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntTransactionRowView.swift; sourceTree = "<group>"; };
+		76F1C7742B69F31B0067ADD6 /* SliderMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMessageView.swift; sourceTree = "<group>"; };
+		76F1C7772B6B2F000067ADD6 /* SliderMessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMessageManager.swift; sourceTree = "<group>"; };
+		76F1C7792B6B32B30067ADD6 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
+		76FD199A2B5DEBF100131C28 /* TransactionTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTotalView.swift; sourceTree = "<group>"; };
+		76FD199D2B5DF54B00131C28 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCreationView.swift; sourceTree = "<group>"; };
+		76FD19A12B5F2E3200131C28 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		78BE44D67D990DDA7F1F7863 /* Pods-TransactionManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-TransactionManagerTests/Pods-TransactionManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		950C0E467A8D1235D75833CB /* Pods_TransactionManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransactionManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9EAD15F72F0B55BEE1BE38 /* Pods_TransactionManager_TransactionManagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransactionManager_TransactionManagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B27E9D27619497FB570EA2FA /* Pods-TransactionManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManager.release.xcconfig"; path = "Target Support Files/Pods-TransactionManager/Pods-TransactionManager.release.xcconfig"; sourceTree = "<group>"; };
+		BA9ABC0C82D88548C18CD8C1 /* Pods-TransactionManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManager.debug.xcconfig"; path = "Target Support Files/Pods-TransactionManager/Pods-TransactionManager.debug.xcconfig"; sourceTree = "<group>"; };
+		E5A8D1D69F50C7948100BAA6 /* Pods-TransactionManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManagerTests.release.xcconfig"; path = "Target Support Files/Pods-TransactionManagerTests/Pods-TransactionManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F86C1E797D228F60BFA5B666 /* Pods-TransactionManager-TransactionManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManager-TransactionManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C8BB630B12F2B168CD9608 /* Pods_TransactionManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE167DFBBB0BF0D0A8631366 /* Pods_TransactionManagerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +153,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101108E6D434A39B0F094494 /* Pods_TransactionManager_TransactionManagerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7609913329F583E70005FE95 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7659192529695A16001499E1 /* CategoryPickerView.swift */,
+				76D1B8E129F09E67007C0532 /* CategoryManager.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		765918DF29681BCB001499E1 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +176,8 @@
 				765918FB29681BCF001499E1 /* TransactionManagerTests */,
 				7659190529681BCF001499E1 /* TransactionManagerUITests */,
 				765918E929681BCB001499E1 /* Products */,
+				E11EAA9EB5AD67F7B73298D1 /* Pods */,
+				E797FAE5EFCA9142DFA4BCFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +194,16 @@
 		765918EA29681BCB001499E1 /* TransactionManager */ = {
 			isa = PBXGroup;
 			children = (
+				76D1B8DC29F071D1007C0532 /* Database */,
+				7659191E29682F4F001499E1 /* Utils */,
+				7659191B29682EE8001499E1 /* Extensions */,
+				7659191829681E74001499E1 /* Components */,
+				7659191729681D81001499E1 /* Views */,
 				765918EB29681BCB001499E1 /* TransactionManagerApp.swift */,
 				765918ED29681BCB001499E1 /* ContentView.swift */,
 				765918EF29681BCF001499E1 /* Assets.xcassets */,
 				765918F129681BCF001499E1 /* Preview Content */,
+				76D1B8DF29F0754E007C0532 /* EntityModels.swift */,
 			);
 			path = TransactionManager;
 			sourceTree = "<group>";
@@ -127,6 +233,179 @@
 			path = TransactionManagerUITests;
 			sourceTree = "<group>";
 		};
+		7659191729681D81001499E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7762B6B2EE00067ADD6 /* SliderMessage */,
+				76F1C76E2B645D8C0067ADD6 /* ListView */,
+				76F1C75F2B640A0A0067ADD6 /* ImagePicker */,
+				76FD199C2B5DF51A00131C28 /* PeopleView */,
+				76FD19992B5DEBBA00131C28 /* Home */,
+				7609913329F583E70005FE95 /* Category */,
+				76D1B8E329F20020007C0532 /* Creation */,
+				76FD19A12B5F2E3200131C28 /* BlurView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7659191829681E74001499E1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7659191929681E94001499E1 /* ThemeSwitch.swift */,
+				766ABDB329E72801007D9281 /* RowView.swift */,
+				766ABDB529E7601B007D9281 /* TransactionRowView.swift */,
+				7649D8B42A280C190005F1B2 /* DatePickerView.swift */,
+				76F1C7722B645FC40067ADD6 /* IntTransactionRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7659191B29682EE8001499E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7659191C29682F00001499E1 /* Colour.swift */,
+				76591923296833FB001499E1 /* Utils.swift */,
+				766ABDB729E761DD007D9281 /* Shapes.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7659191E29682F4F001499E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7659191F29682F5F001499E1 /* Constants.swift */,
+				7659192129682F7D001499E1 /* UserDefaultsUtils.swift */,
+				766ABDB929E76559007D9281 /* Structures.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		76C6BE292A2561AA00ED17C1 /* TransactionList */ = {
+			isa = PBXGroup;
+			children = (
+				76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */,
+				76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */,
+				76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */,
+			);
+			path = TransactionList;
+			sourceTree = "<group>";
+		};
+		76D1B8DC29F071D1007C0532 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				76D1B8DD29F071EE007C0532 /* DatabaseManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		76D1B8E329F20020007C0532 /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7692B6442490067ADD6 /* International */,
+				76F1C7682B6442320067ADD6 /* Transactions */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		76F1C75F2B640A0A0067ADD6 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C75D2B6409E90067ADD6 /* ImagePicker.swift */,
+				76F1C7602B640A2B0067ADD6 /* ImagePickerManager.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		76F1C7682B6442320067ADD6 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				76D1B8E429F20050007C0532 /* CreationView.swift */,
+				76D1B8EF29F32B72007C0532 /* CreationViewModel.swift */,
+				7609913129F5839F0005FE95 /* CreationManager.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		76F1C7692B6442490067ADD6 /* International */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7662B6440B90067ADD6 /* InternationalTransactionView.swift */,
+				76F1C76A2B64427E0067ADD6 /* InternationalCreationViewModel.swift */,
+				76F1C76C2B6442910067ADD6 /* InternationalCreationManager.swift */,
+			);
+			path = International;
+			sourceTree = "<group>";
+		};
+		76F1C76E2B645D8C0067ADD6 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C76F2B645D9D0067ADD6 /* InternationalTransactionList */,
+				76C6BE292A2561AA00ED17C1 /* TransactionList */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		76F1C76F2B645D9D0067ADD6 /* InternationalTransactionList */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7702B645E970067ADD6 /* IntTransactionsListView.swift */,
+			);
+			path = InternationalTransactionList;
+			sourceTree = "<group>";
+		};
+		76F1C7762B6B2EE00067ADD6 /* SliderMessage */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7742B69F31B0067ADD6 /* SliderMessageView.swift */,
+				76F1C7772B6B2F000067ADD6 /* SliderMessageManager.swift */,
+			);
+			path = SliderMessage;
+			sourceTree = "<group>";
+		};
+		76FD19992B5DEBBA00131C28 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7659191529681D7A001499E1 /* HomeView.swift */,
+				76FD199A2B5DEBF100131C28 /* TransactionTotalView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		76FD199C2B5DF51A00131C28 /* PeopleView */ = {
+			isa = PBXGroup;
+			children = (
+				76FD199D2B5DF54B00131C28 /* PeopleView.swift */,
+				76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */,
+				76F1C7642B6418590067ADD6 /* PeopleViewModel.swift */,
+				76F1C7622B6411750067ADD6 /* PeopleManager.swift */,
+				76F1C7792B6B32B30067ADD6 /* PeopleListView.swift */,
+			);
+			path = PeopleView;
+			sourceTree = "<group>";
+		};
+		E11EAA9EB5AD67F7B73298D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA9ABC0C82D88548C18CD8C1 /* Pods-TransactionManager.debug.xcconfig */,
+				B27E9D27619497FB570EA2FA /* Pods-TransactionManager.release.xcconfig */,
+				22C22C0E7A982B5CC7C0B874 /* Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig */,
+				F86C1E797D228F60BFA5B666 /* Pods-TransactionManager-TransactionManagerUITests.release.xcconfig */,
+				78BE44D67D990DDA7F1F7863 /* Pods-TransactionManagerTests.debug.xcconfig */,
+				E5A8D1D69F50C7948100BAA6 /* Pods-TransactionManagerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E797FAE5EFCA9142DFA4BCFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				950C0E467A8D1235D75833CB /* Pods_TransactionManager.framework */,
+				9A9EAD15F72F0B55BEE1BE38 /* Pods_TransactionManager_TransactionManagerUITests.framework */,
+				3BEA83828FD906961B20DD3A /* Pods_TransactionManagerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +413,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7659190C29681BCF001499E1 /* Build configuration list for PBXNativeTarget "TransactionManager" */;
 			buildPhases = (
+				D9784A14CF3BC79641097609 /* [CP] Check Pods Manifest.lock */,
 				765918E429681BCB001499E1 /* Sources */,
 				765918E529681BCB001499E1 /* Frameworks */,
 				765918E629681BCB001499E1 /* Resources */,
+				FE7A5AD31A75BFA4B38A0C12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +432,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7659190F29681BCF001499E1 /* Build configuration list for PBXNativeTarget "TransactionManagerTests" */;
 			buildPhases = (
+				3BA7945AA5CCC37364541C94 /* [CP] Check Pods Manifest.lock */,
 				765918F429681BCF001499E1 /* Sources */,
 				765918F529681BCF001499E1 /* Frameworks */,
 				765918F629681BCF001499E1 /* Resources */,
@@ -169,9 +451,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7659191229681BCF001499E1 /* Build configuration list for PBXNativeTarget "TransactionManagerUITests" */;
 			buildPhases = (
+				DC63FD9A85C6E8C0B52AD58D /* [CP] Check Pods Manifest.lock */,
 				765918FE29681BCF001499E1 /* Sources */,
 				765918FF29681BCF001499E1 /* Frameworks */,
 				7659190029681BCF001499E1 /* Resources */,
+				DE40CD58D59E295496B998C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +491,7 @@
 				};
 			};
 			buildConfigurationList = 765918E329681BCB001499E1 /* Build configuration list for PBXProject "TransactionManager" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -252,13 +536,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3BA7945AA5CCC37364541C94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransactionManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9784A14CF3BC79641097609 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransactionManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC63FD9A85C6E8C0B52AD58D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransactionManager-TransactionManagerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE40CD58D59E295496B998C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE7A5AD31A75BFA4B38A0C12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransactionManager/Pods-TransactionManager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransactionManager/Pods-TransactionManager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransactionManager/Pods-TransactionManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		765918E429681BCB001499E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F1C7712B645E970067ADD6 /* IntTransactionsListView.swift in Sources */,
+				76D1B8E029F0754E007C0532 /* EntityModels.swift in Sources */,
+				76F1C7732B645FC40067ADD6 /* IntTransactionRowView.swift in Sources */,
+				7649D8B52A280C190005F1B2 /* DatePickerView.swift in Sources */,
+				7659192229682F7D001499E1 /* UserDefaultsUtils.swift in Sources */,
+				766ABDB429E72801007D9281 /* RowView.swift in Sources */,
+				766ABDBA29E76559007D9281 /* Structures.swift in Sources */,
+				76F1C77A2B6B32B30067ADD6 /* PeopleListView.swift in Sources */,
+				76FD19A22B5F2E3200131C28 /* BlurView.swift in Sources */,
+				76F1C7782B6B2F000067ADD6 /* SliderMessageManager.swift in Sources */,
+				7659191D29682F00001499E1 /* Colour.swift in Sources */,
+				76FD199E2B5DF54B00131C28 /* PeopleView.swift in Sources */,
+				76C6BE2B2A2561D000ED17C1 /* TransactionsListView.swift in Sources */,
+				76F1C76D2B6442910067ADD6 /* InternationalCreationManager.swift in Sources */,
+				76D1B8F029F32B72007C0532 /* CreationViewModel.swift in Sources */,
+				76F1C7612B640A2B0067ADD6 /* ImagePickerManager.swift in Sources */,
+				7659192629695A16001499E1 /* CategoryPickerView.swift in Sources */,
+				76D1B8E529F20050007C0532 /* CreationView.swift in Sources */,
+				76FD199B2B5DEBF100131C28 /* TransactionTotalView.swift in Sources */,
+				76F1C7672B6440B90067ADD6 /* InternationalTransactionView.swift in Sources */,
+				7659191629681D7A001499E1 /* HomeView.swift in Sources */,
+				76D1B8DE29F071EE007C0532 /* DatabaseManager.swift in Sources */,
+				76F1C76B2B64427E0067ADD6 /* InternationalCreationViewModel.swift in Sources */,
+				7659191A29681E94001499E1 /* ThemeSwitch.swift in Sources */,
+				76C6BE2F2A25792900ED17C1 /* TransactionsManager.swift in Sources */,
+				76F1C75E2B6409E90067ADD6 /* ImagePicker.swift in Sources */,
+				76FD19A02B5F273A00131C28 /* PeopleCreationView.swift in Sources */,
+				76D1B8E229F09E67007C0532 /* CategoryManager.swift in Sources */,
+				76F1C7752B69F31B0067ADD6 /* SliderMessageView.swift in Sources */,
+				76F1C7652B6418590067ADD6 /* PeopleViewModel.swift in Sources */,
 				765918EE29681BCB001499E1 /* ContentView.swift in Sources */,
 				765918EC29681BCB001499E1 /* TransactionManagerApp.swift in Sources */,
+				7659192029682F5F001499E1 /* Constants.swift in Sources */,
+				766ABDB629E7601B007D9281 /* TransactionRowView.swift in Sources */,
+				76591924296833FB001499E1 /* Utils.swift in Sources */,
+				7609913229F5839F0005FE95 /* CreationManager.swift in Sources */,
+				76C6BE2D2A25791800ED17C1 /* TransactionsViewModel.swift in Sources */,
+				76F1C7632B6411750067ADD6 /* PeopleManager.swift in Sources */,
+				766ABDB829E761DD007D9281 /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +835,7 @@
 		};
 		7659190D29681BCF001499E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA9ABC0C82D88548C18CD8C1 /* Pods-TransactionManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,6 +865,7 @@
 		};
 		7659190E29681BCF001499E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B27E9D27619497FB570EA2FA /* Pods-TransactionManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +895,7 @@
 		};
 		7659191029681BCF001499E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78BE44D67D990DDA7F1F7863 /* Pods-TransactionManagerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -489,6 +916,7 @@
 		};
 		7659191129681BCF001499E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5A8D1D69F50C7948100BAA6 /* Pods-TransactionManagerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -509,6 +937,7 @@
 		};
 		7659191329681BCF001499E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22C22C0E7A982B5CC7C0B874 /* Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +956,7 @@
 		};
 		7659191429681BCF001499E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F86C1E797D228F60BFA5B666 /* Pods-TransactionManager-TransactionManagerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
