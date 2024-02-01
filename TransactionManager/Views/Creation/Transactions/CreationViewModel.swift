@@ -61,4 +61,20 @@ class CreationViewModel : ObservableObject {
         }
     }
     
+    func checkValidInputs() -> String{
+        if pubTitleString.isEmpty {
+            return "Please enter title for \(getTitle())"
+        } else  if pubAmountString.isEmpty {
+            return "Please enter amount for \(getTitle())"
+        } else if pubDescriptionString.isEmpty {
+            return "Please enter description for \(getTitle())"
+        } else if pubSelectedCategory == nil {
+            return "Please select at least one category for \(getTitle())"
+        }
+        guard let doubleAmount = Double(pubAmountString) else {
+            return "Please enter valid amount for \(getTitle())"
+        }
+        return ""
+    }
+    
 }

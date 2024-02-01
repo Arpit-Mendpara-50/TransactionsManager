@@ -45,33 +45,6 @@ struct CreationView: View {
                 Spacer()
             }
             
-//            if showPeopleCreationView {
-//                BlurView()
-//            }
-            
-//            if showPeopleCreationView {
-//                VStack {
-//                    Spacer()
-//                    PeopleCreationView() { title, message, isShow in
-//                        withAnimation {
-//                            showPeopleCreationView.toggle()
-//                            if isShow {
-//                                sliderMessageManager.pubShowSliderMessageView = isShow
-//                                sliderMessageManager.pubSliderTitle = title
-//                                sliderMessageManager.pubSliderMessage = message
-//                            }
-//                        }
-//                    }
-//                }
-//                .transition(.move(edge: .bottom))
-//            }
-            
-            if sliderMessageManager.pubShowSliderMessageView {
-                SliderMessageView(title: sliderMessageManager.pubSliderTitle, message: sliderMessageManager.pubSliderMessage) {
-                    sliderMessageManager.pubShowSliderMessageView = false
-                }
-            }
-            
             if showCategoryView {
                 CategoryPickerView(data: viewModel.pubCategoryData, closeAction: {
                     withAnimation {
@@ -337,23 +310,32 @@ struct CreationView: View {
     
     var saveButton: some View{
         Button(action: {
-            creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
-                if title == "Success" {
-                    peopleViewModel.pubLastUpdated = Date().timeIntervalSince1970
-                    viewModel.clearFormData()
-                    sliderMessageManager.pubSliderTitle = title
-                    sliderMessageManager.pubSliderMessage = message
-                    transactionsManager.getTransactionsList()
-                    withAnimation {
+            let validInput = viewModel.checkValidInputs()
+            if validInput.isEmpty {
+                creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                    if title == "Success" {
+                        peopleViewModel.pubLastUpdated = Date().timeIntervalSince1970
+                        viewModel.clearFormData()
+                        sliderMessageManager.pubSliderTitle = title
+                        sliderMessageManager.pubSliderMessage = message
+                        transactionsManager.getTransactionsList()
+                        withAnimation {
+                            sliderMessageManager.pubShowSliderMessageView = true
+                            isShowView = false
+                        }
+                    } else {
+                        sliderMessageManager.pubSliderTitle = title
+                        sliderMessageManager.pubSliderMessage = message
                         sliderMessageManager.pubShowSliderMessageView = true
-                        isShowView = false
                     }
-                } else {
-                    sliderMessageManager.pubSliderTitle = title
-                    sliderMessageManager.pubSliderMessage = message
+                })
+            } else {
+                sliderMessageManager.pubSliderTitle = "Failed"
+                sliderMessageManager.pubSliderMessage = validInput
+                withAnimation {
                     sliderMessageManager.pubShowSliderMessageView = true
                 }
-            })
+            }
         }, label: {
             HStack(spacing: 10){
                 Spacer()
