@@ -23,7 +23,8 @@ struct CategoryPickerView: View {
                     HStack{
                         Spacer()
                         VStack{
-                            Image(systemName: "pencil.slash")
+                            Image(systemName: "xmark")
+                                .bold()
                                 .frame(width: 20, height: 20)
                             Spacer().frame(height: 10)
                         }

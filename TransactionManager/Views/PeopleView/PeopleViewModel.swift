@@ -28,4 +28,14 @@ class PeopleViewModel : ObservableObject {
         ImagePickerManager.shared.selectedImage = nil
         
     }
+    
+    func checkValidInputs() -> String{
+        if personName.isEmpty {
+            return "Please enter person name"
+        }
+        guard let image = ImagePickerManager.shared.selectedImage else{
+            return "Please select photo for person"
+        }
+        return ""
+    }
 }

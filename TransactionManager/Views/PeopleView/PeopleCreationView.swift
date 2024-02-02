@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PeopleCreationView: View {
     
-    var closeAction: ((String, String, Bool) -> Void)? = nil
     @ObservedObject var imagePickerManager = ImagePickerManager.shared
     @ObservedObject var model = PeopleViewModel.shared
     @ObservedObject var peopleManager = PeopleManager.shared
+    @ObservedObject var sliderMessageManager = SliderMessageManager.shared
     
     var body: some View {
         VStack(spacing: 0){
@@ -21,7 +21,8 @@ struct PeopleCreationView: View {
                 HStack{
                     Spacer()
                     VStack{
-                        Image(systemName: "pencil.slash")
+                        Image(systemName: "xmark")
+                            .bold()
                             .frame(width: 20, height: 20)
                         Spacer().frame(height: 10)
                     }
@@ -31,7 +32,9 @@ struct PeopleCreationView: View {
                     .background(Color.red)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .onTapGesture {
-                        closeAction?("", "", false)
+                        withAnimation {
+                            model.pubShowPeopleCreationView = false
+                        }
                     }
                     Spacer().frame(width: 20)
                     
@@ -78,13 +81,28 @@ struct PeopleCreationView: View {
                 .padding(.horizontal)
                 
                 Button(action: {
-                    if let selectedImage = imagePickerManager.selectedImage {
+                    let validInput = model.checkValidInputs()
+                    if let selectedImage = imagePickerManager.selectedImage, validInput.isEmpty {
                         imagePickerManager.saveImageToDocumentsDirectory(image: selectedImage)
                         if let selectedImageName = imagePickerManager.selectedImageName {
-                            peopleManager.addPerson(nameValue: model.personName, imageValue: selectedImageName, amountValue: "0.0", createdDateValue: Date().ISO8601Format(), updatedDateValue: Date().ISO8601Format())
-                            peopleManager.getPeopleList()
-                            closeAction?("Success", "\(model.personName) is Added to People", true)
-                            model.clearPeopleForms()
+                            peopleManager.addPerson(nameValue: model.personName, imageValue: selectedImageName, amountValue: "0.0", createdDateValue: Date().ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                                peopleManager.getPeopleList()
+                                model.pubShowPeopleCreationView = false
+                                sliderMessageManager.pubSliderTitle = title
+                                sliderMessageManager.pubSliderMessage = message
+                                withAnimation {
+                                    sliderMessageManager.pubShowSliderMessageView = true
+                                }
+                                if title == "Success" {
+                                    model.clearPeopleForms()
+                                }
+                            })
+                        }
+                    } else {
+                        sliderMessageManager.pubSliderTitle = "Failed"
+                        sliderMessageManager.pubSliderMessage = validInput
+                        withAnimation {
+                            sliderMessageManager.pubShowSliderMessageView = true
                         }
                     }
                 }, label: {

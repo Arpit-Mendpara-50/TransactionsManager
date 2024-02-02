@@ -71,6 +71,11 @@ class CreationViewModel : ObservableObject {
         } else if pubSelectedCategory == nil {
             return "Please select at least one category for \(getTitle())"
         }
+        if pubCurrentType == .expense {
+            if PeopleViewModel.shared.pubSelectedPeopleData.isEmpty {
+                return "Please select at least one person for \(getTitle())"
+            }
+        }
         guard let doubleAmount = Double(pubAmountString) else {
             return "Please enter valid amount for \(getTitle())"
         }

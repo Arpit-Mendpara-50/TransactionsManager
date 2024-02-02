@@ -29,7 +29,8 @@ struct RowView: View {
             }, label: {
                 HStack{
                     if isRowOpen{
-                        Image(systemName: "pencil.slash")
+                        Image(systemName: "xmark")
+                            .bold()
                             .foregroundColor(Color.white)
                             .frame(width: 20, height: 20)
                             .padding()

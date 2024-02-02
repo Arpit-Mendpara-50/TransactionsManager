@@ -13,15 +13,16 @@ struct HomeView: View {
     @State var showInternationalCreationView = false
     @State var showListView = false
     @State var showIntListView = false
-//    @State var showPeopleCreationView = false
     @ObservedObject var creationManager = CreationManager.shared
-    @ObservedObject var transactionsManager = TransactionsManager.shared
     @ObservedObject var creationViewModel = CreationViewModel.shared
+    @ObservedObject var transactionsManager = TransactionsManager.shared
     @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
     @ObservedObject var databaseManager = DatabaseManager.shared
     @ObservedObject var peopleManager = PeopleManager.shared
     @ObservedObject var peopleViewModel = PeopleViewModel.shared
     @ObservedObject var sliderMessageManager = SliderMessageManager.shared
+    @ObservedObject var settingsViewModel = SettingsViewModel.shared
+    @ObservedObject var personTransactionsViewModel = PersonTransactionsViewModel.shared
     
     var body: some View {
         ZStack {
@@ -31,6 +32,21 @@ struct HomeView: View {
                         HStack {
                             Text("Transactions").font(.system(size: 30, weight: .bold))
                             Spacer()
+                            Button(action: {
+                                settingsViewModel.pubShowSettingsView = true
+                            }, label: {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color.white)
+                                        .frame(width: 40, height: 40)
+                                        .shadow(radius: 5)
+                                    Image(systemName: "gear")
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundStyle(Color.black)
+                                        .frame(width: 25, height: 25)
+                                }
+                            })
                         }.padding()
                         VStack(spacing: 15) {
                             TransactionTotalView(title: "Total Income", amount: transactionsManager.transactionTotal(type: .income), color: Color.green, isAdd: true, onShowList: {
@@ -89,7 +105,7 @@ struct HomeView: View {
                         }
                         .frame(height: 130)
                         .padding(.horizontal)*/
-                        PeopleListView()
+                        PeopleListView(isSelectable: false)
                         Spacer().frame(height: ScreenSize.safeBottom())
                         /*
                         HStack {
@@ -135,6 +151,11 @@ struct HomeView: View {
                 if showIntListView{
                     IntTransactionsListView(isShowView: $showIntListView).edgesIgnoringSafeArea(.all)
                 }
+                
+                if personTransactionsViewModel.pubShowPersonTransactionsList {
+                    PersonTransactionsList()
+                }
+                
                 if peopleViewModel.pubShowPeopleCreationView {
                     BlurView()
                 }
@@ -142,28 +163,20 @@ struct HomeView: View {
                 if peopleViewModel.pubShowPeopleCreationView {
                     VStack {
                         Spacer()
-                        PeopleCreationView() { title, message, isShow in
-                            withAnimation {
-                                peopleViewModel.pubShowPeopleCreationView.toggle()
-                                if isShow {
-                                    sliderMessageManager.pubShowSliderMessageView = isShow
-                                    sliderMessageManager.pubSliderTitle = title
-                                    sliderMessageManager.pubSliderMessage = message
-                                }
-                            }
-                        }
+                        PeopleCreationView()
                     }
                     .transition(.move(edge: .bottom))
                 }
                 
                 if sliderMessageManager.pubShowSliderMessageView {
-                    SliderMessageView(title: sliderMessageManager.pubSliderTitle, message: sliderMessageManager.pubSliderMessage) {
-                        withAnimation {
-                            sliderMessageManager.pubShowSliderMessageView = false
-                        }
-                    }
-                    .transition(.move(edge: .top))
+                    SliderMessageView(title: sliderMessageManager.pubSliderTitle, message: sliderMessageManager.pubSliderMessage)
+                        .transition(.move(edge: .top))
                 }
+                
+                if settingsViewModel.pubShowSettingsView {
+                    SettingsView()
+                }
+                
             } else {
                 VStack {
                     Spacer()
@@ -180,11 +193,6 @@ struct HomeView: View {
             getAllTransactions()
             getPeople()
             getAllInternationalTransactions()
-            DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
-                withAnimation {
-                    sliderMessageManager.pubShowSliderMessageView = true
-                }
-            })
         }
     }
     

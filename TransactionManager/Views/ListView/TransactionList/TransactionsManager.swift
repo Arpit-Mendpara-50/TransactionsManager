@@ -68,12 +68,6 @@ class TransactionsManager: ObservableObject {
             }
             viewModel.allIntTransactions = transactionsArray
             viewModel.pubIsIntTransactionsLoading = false
-            for item in transactionsArray {
-                print("-----------------------")
-                print(item.title)
-                print((Double(item.baseAmount) ?? 0.0)*(Double(item.conversionAmount) ?? 0.0))
-                print("-----------------------")
-            }
         }else{
             print("Something went wrong")
             viewModel.pubIsIntTransactionsLoading = false

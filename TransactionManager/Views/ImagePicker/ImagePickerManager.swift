@@ -35,7 +35,7 @@ class ImagePickerManager: ObservableObject {
         let filename = getDocumentsDirectory().appendingPathComponent(imageName)
         return UIImage(contentsOfFile: filename.path)
     }
-    
+    // MARK: Not using
     func loadImageFromDocumentsURL(imageURL: URL) -> UIImage? {
         let filename = imageURL
         return UIImage(contentsOfFile: filename.path)

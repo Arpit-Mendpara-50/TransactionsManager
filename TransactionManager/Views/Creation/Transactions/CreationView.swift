@@ -241,7 +241,7 @@ struct CreationView: View {
                 Spacer()
             }
             .padding(.horizontal)
-            PeopleListView()
+            PeopleListView(isSelectable: false)
         }
     }
     

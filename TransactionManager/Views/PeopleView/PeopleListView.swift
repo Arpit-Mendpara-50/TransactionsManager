@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PeopleListView: View {
-    
+    var isSelectable: Bool
     @ObservedObject var peopleViewModel = PeopleViewModel.shared
     @ObservedObject var peopleManager = PeopleManager.shared
     @ObservedObject var sliderMessageManager = SliderMessageManager.shared
+    @ObservedObject var personTransactionsViewModel = PersonTransactionsViewModel.shared
     
     var body: some View {
         VStack {
@@ -19,7 +20,10 @@ struct PeopleListView: View {
                 HStack(spacing: 15) {
                     if !peopleViewModel.pubIsPeopleLoading {
                         ForEach(0..<peopleViewModel.pubPeopleData.count) { index in
-                            PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.pubPeopleData[index].amount, color: Color.white, isAdd: false, isSelectable: true, onTap: {
+                            PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.pubPeopleData[index].amount, color: Color.white, isAdd: false, isSelectable: isSelectable, onTap: {
+                                if !isSelectable {
+                                    personTransactionsViewModel.openPeronTransactionListView(person: peopleViewModel.pubPeopleData[index])
+                                }
                             })
                         }
                     }
@@ -41,5 +45,5 @@ struct PeopleListView: View {
 }
 
 #Preview {
-    PeopleListView()
+    PeopleListView(isSelectable: false)
 }

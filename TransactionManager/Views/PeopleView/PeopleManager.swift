@@ -18,11 +18,15 @@ class PeopleManager: ObservableObject {
     var databaseManager = DatabaseManager.shared
     var viewModel = PeopleViewModel.shared
     
-    public func addPerson(nameValue: String, imageValue: String, amountValue: String, createdDateValue: String, updatedDateValue: String){
+    public func addPerson(nameValue: String, imageValue: String, amountValue: String, createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
         if let db = databaseManager.db, let people = databaseManager.people{
             do{
                 try db.run(people.insert(databaseManager.personName <- nameValue, databaseManager.personImage <- imageValue, databaseManager.personAmount <- amountValue, databaseManager.personCreatedDate <- createdDateValue, databaseManager.personUpdatedDate <- updatedDateValue))
+                DispatchQueue.main.async {
+                    completionHandler("Success", "\(nameValue) is added to people")
+                }
             }catch{
+                completionHandler("Failed", "Failed to add \(nameValue) to people")
                 print(error.localizedDescription)
             }
         }
@@ -67,7 +71,6 @@ class PeopleManager: ObservableObject {
     }
     
     public func getPersonById(id: Int64) -> PeopleModel? {
-        print("current person id: \(id)")
         let people = viewModel.pubPeopleData
         for item in people {
             if item.id == id {

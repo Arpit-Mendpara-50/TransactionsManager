@@ -45,29 +45,31 @@ struct TransactionRowView: View {
                 Text("$"+transactionData.amount)
                     .font(.system(size: 17, weight: .bold))
             }.padding(.leading, 10)
-            HStack {
-                Text("People Included")
-                    .font(.system(size: 10))
-                    .lineLimit(2)
-                    .frame(width: 50)
-                Spacer().frame(width: 5)
-                if !transactionData.peopleIncluded.isEmpty {
-                    ForEach(TransactionsManager.shared.getPeopleIncluded(people: transactionData.peopleIncluded)) { item in
-                        HStack(spacing: 5){
-                            if let image = ImagePickerManager.shared.loadImageFromDocumentsDirectory(imageName: item.imagePath) {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 40, height: 40)
-                                    .clipShape(Circle())
-                                    .shadow(radius: 2)
+            if transactionData.transactionType == 0 {
+                HStack {
+                    Text("People Included")
+                        .font(.system(size: 10))
+                        .lineLimit(2)
+                        .frame(width: 50)
+                    Spacer().frame(width: 5)
+                    if !transactionData.peopleIncluded.isEmpty {
+                        ForEach(TransactionsManager.shared.getPeopleIncluded(people: transactionData.peopleIncluded)) { item in
+                            HStack(spacing: 5){
+                                if let image = ImagePickerManager.shared.loadImageFromDocumentsDirectory(imageName: item.imagePath) {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 30, height: 30)
+                                        .clipShape(Circle())
+                                        .shadow(radius: 2)
+                                }
                             }
                         }
                     }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.leading, 10)
             }
-            .padding(.leading, 10)
             Line(padding: 0).padding(.vertical, 5)
             Spacer()
         }

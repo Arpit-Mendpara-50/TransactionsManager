@@ -49,6 +49,15 @@
 		76F1C7752B69F31B0067ADD6 /* SliderMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7742B69F31B0067ADD6 /* SliderMessageView.swift */; };
 		76F1C7782B6B2F000067ADD6 /* SliderMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7772B6B2F000067ADD6 /* SliderMessageManager.swift */; };
 		76F1C77A2B6B32B30067ADD6 /* PeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7792B6B32B30067ADD6 /* PeopleListView.swift */; };
+		76F1C77D2B6C84C40067ADD6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C77C2B6C84C40067ADD6 /* SettingsView.swift */; };
+		76F1C77F2B6C84D90067ADD6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C77E2B6C84D90067ADD6 /* SettingsManager.swift */; };
+		76F1C7812B6C84E60067ADD6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7802B6C84E60067ADD6 /* SettingsViewModel.swift */; };
+		76F1C7842B6D4C020067ADD6 /* PersonTransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7832B6D4C020067ADD6 /* PersonTransactionsList.swift */; };
+		76F1C7862B6D4C1F0067ADD6 /* PersonTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7852B6D4C1F0067ADD6 /* PersonTransactionsViewModel.swift */; };
+		76F1C7882B6D6C1D0067ADD6 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C7872B6D6C1D0067ADD6 /* MonthYearPicker.swift */; };
+		76F1C78B2B6D9AAC0067ADD6 /* InlineFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C78A2B6D9AAC0067ADD6 /* InlineFilterView.swift */; };
+		76F1C78D2B6D9ABF0067ADD6 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C78C2B6D9ABF0067ADD6 /* FilterView.swift */; };
+		76F1C78F2B6D9ACF0067ADD6 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F1C78E2B6D9ACF0067ADD6 /* FilterViewModel.swift */; };
 		76FD199B2B5DEBF100131C28 /* TransactionTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199A2B5DEBF100131C28 /* TransactionTotalView.swift */; };
 		76FD199E2B5DF54B00131C28 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199D2B5DF54B00131C28 /* PeopleView.swift */; };
 		76FD19A02B5F273A00131C28 /* PeopleCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */; };
@@ -119,6 +128,15 @@
 		76F1C7742B69F31B0067ADD6 /* SliderMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMessageView.swift; sourceTree = "<group>"; };
 		76F1C7772B6B2F000067ADD6 /* SliderMessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMessageManager.swift; sourceTree = "<group>"; };
 		76F1C7792B6B32B30067ADD6 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
+		76F1C77C2B6C84C40067ADD6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = ../../../../../.Trash/TransactionManager/TransactionManager/Views/PeopleView/SettingsView.swift; sourceTree = "<group>"; };
+		76F1C77E2B6C84D90067ADD6 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		76F1C7802B6C84E60067ADD6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		76F1C7832B6D4C020067ADD6 /* PersonTransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTransactionsList.swift; sourceTree = "<group>"; };
+		76F1C7852B6D4C1F0067ADD6 /* PersonTransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTransactionsViewModel.swift; sourceTree = "<group>"; };
+		76F1C7872B6D6C1D0067ADD6 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
+		76F1C78A2B6D9AAC0067ADD6 /* InlineFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineFilterView.swift; sourceTree = "<group>"; };
+		76F1C78C2B6D9ABF0067ADD6 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		76F1C78E2B6D9ACF0067ADD6 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		76FD199A2B5DEBF100131C28 /* TransactionTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTotalView.swift; sourceTree = "<group>"; };
 		76FD199D2B5DF54B00131C28 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCreationView.swift; sourceTree = "<group>"; };
@@ -236,6 +254,8 @@
 		7659191729681D81001499E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76F1C7892B6D9A920067ADD6 /* FilterView */,
+				76F1C77B2B6C84A90067ADD6 /* Settings */,
 				76F1C7762B6B2EE00067ADD6 /* SliderMessage */,
 				76F1C76E2B645D8C0067ADD6 /* ListView */,
 				76F1C75F2B640A0A0067ADD6 /* ImagePicker */,
@@ -254,6 +274,7 @@
 				7659191929681E94001499E1 /* ThemeSwitch.swift */,
 				766ABDB329E72801007D9281 /* RowView.swift */,
 				7649D8B42A280C190005F1B2 /* DatePickerView.swift */,
+				76F1C7872B6D6C1D0067ADD6 /* MonthYearPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -362,6 +383,35 @@
 			path = SliderMessage;
 			sourceTree = "<group>";
 		};
+		76F1C77B2B6C84A90067ADD6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C77C2B6C84C40067ADD6 /* SettingsView.swift */,
+				76F1C77E2B6C84D90067ADD6 /* SettingsManager.swift */,
+				76F1C7802B6C84E60067ADD6 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		76F1C7822B6D4BE90067ADD6 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C7832B6D4C020067ADD6 /* PersonTransactionsList.swift */,
+				76F1C7852B6D4C1F0067ADD6 /* PersonTransactionsViewModel.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		76F1C7892B6D9A920067ADD6 /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				76F1C78A2B6D9AAC0067ADD6 /* InlineFilterView.swift */,
+				76F1C78C2B6D9ABF0067ADD6 /* FilterView.swift */,
+				76F1C78E2B6D9ACF0067ADD6 /* FilterViewModel.swift */,
+			);
+			path = FilterView;
+			sourceTree = "<group>";
+		};
 		76FD19992B5DEBBA00131C28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +424,7 @@
 		76FD199C2B5DF51A00131C28 /* PeopleView */ = {
 			isa = PBXGroup;
 			children = (
+				76F1C7822B6D4BE90067ADD6 /* Person */,
 				76FD199D2B5DF54B00131C28 /* PeopleView.swift */,
 				76FD199F2B5F273A00131C28 /* PeopleCreationView.swift */,
 				76F1C7642B6418590067ADD6 /* PeopleViewModel.swift */,
@@ -647,13 +698,16 @@
 				76F1C7712B645E970067ADD6 /* IntTransactionsListView.swift in Sources */,
 				76D1B8E029F0754E007C0532 /* EntityModels.swift in Sources */,
 				76F1C7732B645FC40067ADD6 /* IntTransactionRowView.swift in Sources */,
+				76F1C77F2B6C84D90067ADD6 /* SettingsManager.swift in Sources */,
 				7649D8B52A280C190005F1B2 /* DatePickerView.swift in Sources */,
 				7659192229682F7D001499E1 /* UserDefaultsUtils.swift in Sources */,
 				766ABDB429E72801007D9281 /* RowView.swift in Sources */,
 				766ABDBA29E76559007D9281 /* Structures.swift in Sources */,
 				76F1C77A2B6B32B30067ADD6 /* PeopleListView.swift in Sources */,
+				76F1C7842B6D4C020067ADD6 /* PersonTransactionsList.swift in Sources */,
 				76FD19A22B5F2E3200131C28 /* BlurView.swift in Sources */,
 				76F1C7782B6B2F000067ADD6 /* SliderMessageManager.swift in Sources */,
+				76F1C7862B6D4C1F0067ADD6 /* PersonTransactionsViewModel.swift in Sources */,
 				7659191D29682F00001499E1 /* Colour.swift in Sources */,
 				76FD199E2B5DF54B00131C28 /* PeopleView.swift in Sources */,
 				76C6BE2B2A2561D000ED17C1 /* TransactionsListView.swift in Sources */,
@@ -662,6 +716,7 @@
 				76F1C7612B640A2B0067ADD6 /* ImagePickerManager.swift in Sources */,
 				7659192629695A16001499E1 /* CategoryPickerView.swift in Sources */,
 				76D1B8E529F20050007C0532 /* CreationView.swift in Sources */,
+				76F1C7882B6D6C1D0067ADD6 /* MonthYearPicker.swift in Sources */,
 				76FD199B2B5DEBF100131C28 /* TransactionTotalView.swift in Sources */,
 				76F1C7672B6440B90067ADD6 /* InternationalTransactionView.swift in Sources */,
 				7659191629681D7A001499E1 /* HomeView.swift in Sources */,
@@ -669,10 +724,13 @@
 				76F1C76B2B64427E0067ADD6 /* InternationalCreationViewModel.swift in Sources */,
 				7659191A29681E94001499E1 /* ThemeSwitch.swift in Sources */,
 				76C6BE2F2A25792900ED17C1 /* TransactionsManager.swift in Sources */,
+				76F1C77D2B6C84C40067ADD6 /* SettingsView.swift in Sources */,
 				76F1C75E2B6409E90067ADD6 /* ImagePicker.swift in Sources */,
 				76FD19A02B5F273A00131C28 /* PeopleCreationView.swift in Sources */,
 				76D1B8E229F09E67007C0532 /* CategoryManager.swift in Sources */,
 				76F1C7752B69F31B0067ADD6 /* SliderMessageView.swift in Sources */,
+				76F1C78F2B6D9ACF0067ADD6 /* FilterViewModel.swift in Sources */,
+				76F1C78D2B6D9ABF0067ADD6 /* FilterView.swift in Sources */,
 				76F1C7652B6418590067ADD6 /* PeopleViewModel.swift in Sources */,
 				765918EE29681BCB001499E1 /* ContentView.swift in Sources */,
 				765918EC29681BCB001499E1 /* TransactionManagerApp.swift in Sources */,
@@ -683,6 +741,8 @@
 				76C6BE2D2A25791800ED17C1 /* TransactionsViewModel.swift in Sources */,
 				76F1C7632B6411750067ADD6 /* PeopleManager.swift in Sources */,
 				766ABDB829E761DD007D9281 /* Shapes.swift in Sources */,
+				76F1C7812B6C84E60067ADD6 /* SettingsViewModel.swift in Sources */,
+				76F1C78B2B6D9AAC0067ADD6 /* InlineFilterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
