@@ -13,6 +13,7 @@ struct PeopleCreationView: View {
     @ObservedObject var model = PeopleViewModel.shared
     @ObservedObject var peopleManager = PeopleManager.shared
     @ObservedObject var sliderMessageManager = SliderMessageManager.shared
+    @ObservedObject var helper = Helper.shared
     
     var body: some View {
         VStack(spacing: 0){
@@ -70,7 +71,12 @@ struct PeopleCreationView: View {
                 }
                 
                 HStack {
-                    TextField("", text: $model.personName)
+                    TextField("", text: $model.personName, onEditingChanged: { changed in
+                        if changed {
+                            print("this is 1 \(changed)")
+                            helper.setupKeyboardObserving()
+                        }
+                    })
                         .frame(height: 50)
                         .padding(.leading, 10)
                 }
@@ -81,6 +87,7 @@ struct PeopleCreationView: View {
                 .padding(.horizontal)
                 
                 Button(action: {
+//                    model.pubIsPeopleLoading = true
                     let validInput = model.checkValidInputs()
                     if let selectedImage = imagePickerManager.selectedImage, validInput.isEmpty {
                         imagePickerManager.saveImageToDocumentsDirectory(image: selectedImage)
@@ -96,6 +103,7 @@ struct PeopleCreationView: View {
                                 if title == "Success" {
                                     model.clearPeopleForms()
                                 }
+                                model.pubLastUpdated = Date().timeIntervalSince1970
                             })
                         }
                     } else {
@@ -104,6 +112,7 @@ struct PeopleCreationView: View {
                         withAnimation {
                             sliderMessageManager.pubShowSliderMessageView = true
                         }
+//                        model.pubIsPeopleLoading = false
                     }
                 }, label: {
                     HStack(spacing: 10){

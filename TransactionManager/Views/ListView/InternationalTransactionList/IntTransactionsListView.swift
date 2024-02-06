@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IntTransactionsListView: View {
 
-    @Binding var isShowView: Bool
+//    @Binding var isShowView: Bool
     
     @ObservedObject var creationManager = CreationManager.shared
     @ObservedObject var viewModel = TransactionsViewModel.shared
@@ -26,8 +26,14 @@ struct IntTransactionsListView: View {
                         }
                     } else {
                         Spacer()
+                        Image("ic_nodata")
+                            .resizable()
+                            .frame(width: 200, height: 200)
                         Text("No data found")
+                            .font(.system(size: 25, weight: .bold))
+                            .padding(.top)
                         Spacer()
+                        Spacer().frame(height: 60+ScreenSize.safeTop())
                     }
             }
         }
@@ -60,7 +66,7 @@ struct IntTransactionsListView: View {
     
     var backButton: some View{
         Button(action: {
-            isShowView = false
+            viewModel.pubShowIntListView = false
         }, label: {
             VStack{
                 Image(systemName: "chevron.backward")

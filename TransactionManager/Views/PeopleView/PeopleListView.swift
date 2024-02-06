@@ -18,14 +18,12 @@ struct PeopleListView: View {
         VStack {
             ScrollView(.horizontal) {
                 HStack(spacing: 15) {
-                    if !peopleViewModel.pubIsPeopleLoading {
-                        ForEach(0..<peopleViewModel.pubPeopleData.count) { index in
-                            PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.pubPeopleData[index].amount, color: Color.white, isAdd: false, isSelectable: isSelectable, onTap: {
-                                if !isSelectable {
-                                    personTransactionsViewModel.openPeronTransactionListView(person: peopleViewModel.pubPeopleData[index])
-                                }
-                            })
-                        }
+                    ForEach(0..<peopleViewModel.pubPeopleData.count, id: \.self) { index in
+                        PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.pubPeopleData[index].amount, color: Color.white, isAdd: false, isSelectable: isSelectable, onTap: {
+                            if !isSelectable {
+                                personTransactionsViewModel.openPeronTransactionListView(person: peopleViewModel.pubPeopleData[index])
+                            }
+                        })
                     }
                     //MARK:  Default add button
                     PeopleView(id: 0, title: "Add new member", image: "", amount: "", color: Color.gray, isAdd: true, isSelectable: false) {

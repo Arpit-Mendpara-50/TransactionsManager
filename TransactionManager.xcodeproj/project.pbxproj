@@ -10,6 +10,7 @@
 		101108E6D434A39B0F094494 /* Pods_TransactionManager_TransactionManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9EAD15F72F0B55BEE1BE38 /* Pods_TransactionManager_TransactionManagerUITests.framework */; };
 		34C8BB630B12F2B168CD9608 /* Pods_TransactionManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950C0E467A8D1235D75833CB /* Pods_TransactionManager.framework */; };
 		7609913229F5839F0005FE95 /* CreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7609913129F5839F0005FE95 /* CreationManager.swift */; };
+		7633CF642B6DF0720073E8A5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633CF632B6DF0720073E8A5 /* Helper.swift */; };
 		7649D8B52A280C190005F1B2 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7649D8B42A280C190005F1B2 /* DatePickerView.swift */; };
 		765918EC29681BCB001499E1 /* TransactionManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765918EB29681BCB001499E1 /* TransactionManagerApp.swift */; };
 		765918EE29681BCB001499E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765918ED29681BCB001499E1 /* ContentView.swift */; };
@@ -29,6 +30,9 @@
 		766ABDB629E7601B007D9281 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB529E7601B007D9281 /* TransactionRowView.swift */; };
 		766ABDB829E761DD007D9281 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB729E761DD007D9281 /* Shapes.swift */; };
 		766ABDBA29E76559007D9281 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766ABDB929E76559007D9281 /* Structures.swift */; };
+		76959CD52B703E2000C2CA94 /* CurrencyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76959CD42B703E2000C2CA94 /* CurrencyPickerView.swift */; };
+		76959CD72B70531000C2CA94 /* CurrencyPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76959CD62B70531000C2CA94 /* CurrencyPickerModel.swift */; };
+		76959CD92B71D22F00C2CA94 /* MultiCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76959CD82B71D22F00C2CA94 /* MultiCurrencyView.swift */; };
 		76C6BE2B2A2561D000ED17C1 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */; };
 		76C6BE2D2A25791800ED17C1 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */; };
 		76C6BE2F2A25792900ED17C1 /* TransactionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */; };
@@ -86,6 +90,7 @@
 		22C22C0E7A982B5CC7C0B874 /* Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-TransactionManager-TransactionManagerUITests/Pods-TransactionManager-TransactionManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BEA83828FD906961B20DD3A /* Pods_TransactionManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransactionManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7609913129F5839F0005FE95 /* CreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationManager.swift; sourceTree = "<group>"; };
+		7633CF632B6DF0720073E8A5 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		7649D8B42A280C190005F1B2 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		765918E829681BCB001499E1 /* TransactionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765918EB29681BCB001499E1 /* TransactionManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManagerApp.swift; sourceTree = "<group>"; };
@@ -108,6 +113,9 @@
 		766ABDB529E7601B007D9281 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		766ABDB729E761DD007D9281 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		766ABDB929E76559007D9281 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		76959CD42B703E2000C2CA94 /* CurrencyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerView.swift; sourceTree = "<group>"; };
+		76959CD62B70531000C2CA94 /* CurrencyPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerModel.swift; sourceTree = "<group>"; };
+		76959CD82B71D22F00C2CA94 /* MultiCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCurrencyView.swift; sourceTree = "<group>"; };
 		76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
 		76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsManager.swift; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 		7659191729681D81001499E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76959CD32B703E0400C2CA94 /* CurrencyView */,
 				76F1C7892B6D9A920067ADD6 /* FilterView */,
 				76F1C77B2B6C84A90067ADD6 /* Settings */,
 				76F1C7762B6B2EE00067ADD6 /* SliderMessage */,
@@ -275,6 +284,7 @@
 				766ABDB329E72801007D9281 /* RowView.swift */,
 				7649D8B42A280C190005F1B2 /* DatePickerView.swift */,
 				76F1C7872B6D6C1D0067ADD6 /* MonthYearPicker.swift */,
+				76959CD82B71D22F00C2CA94 /* MultiCurrencyView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -295,14 +305,25 @@
 				7659191F29682F5F001499E1 /* Constants.swift */,
 				7659192129682F7D001499E1 /* UserDefaultsUtils.swift */,
 				766ABDB929E76559007D9281 /* Structures.swift */,
+				7633CF632B6DF0720073E8A5 /* Helper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		76959CD32B703E0400C2CA94 /* CurrencyView */ = {
+			isa = PBXGroup;
+			children = (
+				76959CD42B703E2000C2CA94 /* CurrencyPickerView.swift */,
+				76959CD62B70531000C2CA94 /* CurrencyPickerModel.swift */,
+			);
+			path = CurrencyView;
 			sourceTree = "<group>";
 		};
 		76C6BE292A2561AA00ED17C1 /* TransactionList */ = {
 			isa = PBXGroup;
 			children = (
 				76C6BE2A2A2561D000ED17C1 /* TransactionsListView.swift */,
+				766ABDB529E7601B007D9281 /* TransactionRowView.swift */,
 				76C6BE2C2A25791800ED17C1 /* TransactionsViewModel.swift */,
 				76C6BE2E2A25792900ED17C1 /* TransactionsManager.swift */,
 			);
@@ -341,7 +362,6 @@
 				76D1B8E429F20050007C0532 /* CreationView.swift */,
 				76D1B8EF29F32B72007C0532 /* CreationViewModel.swift */,
 				7609913129F5839F0005FE95 /* CreationManager.swift */,
-				766ABDB529E7601B007D9281 /* TransactionRowView.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -696,11 +716,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76F1C7712B645E970067ADD6 /* IntTransactionsListView.swift in Sources */,
+				7633CF642B6DF0720073E8A5 /* Helper.swift in Sources */,
 				76D1B8E029F0754E007C0532 /* EntityModels.swift in Sources */,
 				76F1C7732B645FC40067ADD6 /* IntTransactionRowView.swift in Sources */,
 				76F1C77F2B6C84D90067ADD6 /* SettingsManager.swift in Sources */,
 				7649D8B52A280C190005F1B2 /* DatePickerView.swift in Sources */,
 				7659192229682F7D001499E1 /* UserDefaultsUtils.swift in Sources */,
+				76959CD72B70531000C2CA94 /* CurrencyPickerModel.swift in Sources */,
 				766ABDB429E72801007D9281 /* RowView.swift in Sources */,
 				766ABDBA29E76559007D9281 /* Structures.swift in Sources */,
 				76F1C77A2B6B32B30067ADD6 /* PeopleListView.swift in Sources */,
@@ -723,6 +745,7 @@
 				76D1B8DE29F071EE007C0532 /* DatabaseManager.swift in Sources */,
 				76F1C76B2B64427E0067ADD6 /* InternationalCreationViewModel.swift in Sources */,
 				7659191A29681E94001499E1 /* ThemeSwitch.swift in Sources */,
+				76959CD52B703E2000C2CA94 /* CurrencyPickerView.swift in Sources */,
 				76C6BE2F2A25792900ED17C1 /* TransactionsManager.swift in Sources */,
 				76F1C77D2B6C84C40067ADD6 /* SettingsView.swift in Sources */,
 				76F1C75E2B6409E90067ADD6 /* ImagePicker.swift in Sources */,
@@ -743,6 +766,7 @@
 				766ABDB829E761DD007D9281 /* Shapes.swift in Sources */,
 				76F1C7812B6C84E60067ADD6 /* SettingsViewModel.swift in Sources */,
 				76F1C78B2B6D9AAC0067ADD6 /* InlineFilterView.swift in Sources */,
+				76959CD92B71D22F00C2CA94 /* MultiCurrencyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

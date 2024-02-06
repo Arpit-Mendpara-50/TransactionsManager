@@ -42,8 +42,8 @@ struct PeopleView: View {
                     Spacer().frame(height: 5)
                     Text(title)
                         .bold()
-                        .lineLimit(nil)
-                        .frame(height: 50)
+                        .lineLimit(2)
+                        .frame(height: 55)
                         .foregroundStyle(Color.white)
                     Spacer()
                 } else {
@@ -60,7 +60,7 @@ struct PeopleView: View {
                             Spacer().frame(height: 15)
                             Text(title)
                                 .bold()
-                            Text(amount)
+                            Text(Helper.shared.currencyCode+amount)
                                 .bold()
                             Spacer()
                         }

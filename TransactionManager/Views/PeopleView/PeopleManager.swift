@@ -37,7 +37,9 @@ class PeopleManager: ObservableObject {
             do{
                 let person: Table = people.filter(databaseManager.personId == personId)
                 try db.run(person.update(databaseManager.personName <- nameValue, databaseManager.personImage <- imageValue, databaseManager.personAmount <- amountValue, databaseManager.personCreatedDate <- createdDateValue, databaseManager.personUpdatedDate <- updatedDateValue))
-                
+                DispatchQueue.main.async {
+                    self.getPeopleList()
+                }
             }catch{
                 print(error.localizedDescription)
             }
@@ -45,9 +47,10 @@ class PeopleManager: ObservableObject {
     }
     
     public func getPeopleList() {
+        viewModel.pubIsPeopleLoading = true
         var peopleArray: [PeopleModel] = []
         if let db = databaseManager.db, var people = databaseManager.people{
-            people = people.order(databaseManager.id.asc)
+            people = people.order(databaseManager.transactionId.asc)
             do{
                 for person in try db.prepare(people){
                     let peopleData: PeopleModel = PeopleModel()

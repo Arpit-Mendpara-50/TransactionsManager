@@ -13,49 +13,80 @@ struct InlineFilterView: View {
     
     var body: some View {
         HStack(spacing: 0){
-            Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                .resizable()
+            Button(action: {
+                viewModel.pubShowFilterView = true
+            }, label: {
+                HStack {
+                    Image("ic_filter")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(Color.black)
+                }
+                .frame(width: 45, height: 45)
                 .background(Color.white)
-                .frame(width: 50, height: 50)
                 .clipShape(Circle())
                 .shadow(radius: 5)
+            })
             ScrollView(.horizontal){
                 HStack(spacing: 10){
                     if !viewModel.pubSelectedMonth.isEmpty {
                         Text(viewModel.pubSelectedMonth)
                             .bold()
-                            .padding()
+                            .padding(13)
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
                     }
                     
-                    if !viewModel.pubSelectedYear.isEmpty {
-                        Text(viewModel.pubSelectedYear)
+                    if !String(viewModel.pubSelectedYear).isEmpty {
+                        Text("\(viewModel.pubSelectedYear)")
                             .bold()
-                            .padding()
+                            .padding(13)
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
                     }
                     
-                        
+                    if viewModel.pubSelectedRange > 0 {
+                        Text("< $\(Int(viewModel.pubSelectedRange))")
+                            .bold()
+                            .padding(13)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(radius: 5)
+                    }
                     
                     if let category = viewModel.pubSelectedCategory {
                         HStack {
                             Image(category.icon)
                                 .resizable()
-                                .background(Color.white)
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                                .shadow(radius: 5)
+                                .renderingMode(.template)
+                                .frame(width: 32, height: 32)
+                                .foregroundStyle(Color.white)
                             Text(category.title)
                                 .bold()
                                 .foregroundStyle(Color.white)
                         }
-                        .padding(.vertical, 5)
+                        .padding(.vertical, 8)
                         .padding(.horizontal, 10)
-                        .background(Color.blue)
+                        .background(Color(UIColor(named: category.color) ?? UIColor.black))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(radius: 5)
+                    }
+                    
+                    if let currency = viewModel.pubSelectedCurrency {
+                        HStack {
+                            Image(currency.icon)
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                            Text(currency.name)
+                                .bold()
+                                .foregroundStyle(Color.black)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 5)
                     }

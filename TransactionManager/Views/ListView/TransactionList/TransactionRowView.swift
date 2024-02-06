@@ -25,6 +25,11 @@ struct TransactionSectionView: View {
 }
 
 struct TransactionRowView: View {
+    @ObservedObject var transactionsManager = TransactionsManager.shared
+    @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
+    @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
+    @ObservedObject var helper = Helper.shared
+    
     var transactionData: TransactionsModel
     
     var body: some View {
@@ -42,8 +47,29 @@ struct TransactionRowView: View {
                         .foregroundColor(Color.gray)
                 }
                 Spacer()
-                Text("$"+transactionData.amount)
-                    .font(.system(size: 17, weight: .bold))
+                if transactionData.transactionType == 0 {
+                    VStack {
+                        Text("\(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).code)"+transactionData.amount)
+                            .font(.system(size: 15, weight: .bold))
+                            .strikethrough()
+                            .foregroundStyle(Color.gray)
+                        HStack {
+                            Image(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).icon)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("\(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).code)"+transactionsViewModel.getDividedAmount(amount: transactionData.amount, peopleIncluded: transactionData.peopleIncluded))
+                                .font(.system(size: 17, weight: .bold))
+                        }
+                    }
+                } else {
+                    HStack {
+                        Image(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).icon)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Text("\(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).code)"+transactionData.amount)
+                            .font(.system(size: 17, weight: .bold))
+                    }
+                }
             }.padding(.leading, 10)
             if transactionData.transactionType == 0 {
                 HStack {
@@ -53,7 +79,7 @@ struct TransactionRowView: View {
                         .frame(width: 50)
                     Spacer().frame(width: 5)
                     if !transactionData.peopleIncluded.isEmpty {
-                        ForEach(TransactionsManager.shared.getPeopleIncluded(people: transactionData.peopleIncluded)) { item in
+                        ForEach(transactionsViewModel.getPeopleIncluded(people: transactionData.peopleIncluded)) { item in
                             HStack(spacing: 5){
                                 if let image = ImagePickerManager.shared.loadImageFromDocumentsDirectory(imageName: item.imagePath) {
                                     Image(uiImage: image)

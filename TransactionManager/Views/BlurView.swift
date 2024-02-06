@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BlurView: View {
+    var opacity: Double = 0.7
     var body: some View {
         
         VStack {
@@ -17,7 +18,7 @@ struct BlurView: View {
             Spacer()
         }
         .background(Color.black)
-        .opacity(0.7)
+        .opacity(opacity)
     }
 }
 

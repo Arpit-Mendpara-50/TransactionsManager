@@ -72,7 +72,7 @@ class CreationViewModel : ObservableObject {
             return "Please select at least one category for \(getTitle())"
         }
         if pubCurrentType == .expense {
-            if PeopleViewModel.shared.pubSelectedPeopleData.isEmpty {
+            if self.pubSelectedPeopleID.isEmpty {
                 return "Please select at least one person for \(getTitle())"
             }
         }

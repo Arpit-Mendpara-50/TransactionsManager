@@ -33,6 +33,7 @@ class TransactionsModel: Identifiable {
     public var category: CategoryModel?
     public var description: String = ""
     public var transactionType: Int = 0 // 0-expense, 1-income, 3-both
+    public var currencyType: Int = 0
     public var peopleIncluded: String = ""
     public var createdDate: String = ""
     public var updatedDate: String = ""
@@ -69,6 +70,8 @@ class InternationalTransactionsModel: Identifiable {
     public var baseAmount: String = ""
     public var conversionAmount: String = ""
     public var description: String = ""
+    public var baseCurrencyType: Int = 0
+    public var conversionCurrencyType: Int = 0
     public var createdDate: String = ""
     public var updatedDate: String = ""
 }

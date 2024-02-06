@@ -18,3 +18,12 @@ struct Line: View {
                 .padding(.leading, padding)
     }
 }
+
+struct VLine: View {
+    var body: some View{
+            VStack{
+                Spacer()
+            }.frame(width: 1)
+            .background(Color.LightGray)
+    }
+}

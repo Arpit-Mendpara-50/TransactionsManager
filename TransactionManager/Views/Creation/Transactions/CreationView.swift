@@ -11,6 +11,7 @@ struct CreationView: View {
     @Binding var isShowView: Bool
     @State var showCategoryView = false
     @State var showCalendarView = false
+    @State var showCurrencyPicker = false
     @ObservedObject var categoryManager = CategoryManager.shared
     @ObservedObject var viewModel = CreationViewModel.shared
     @ObservedObject var creationManager = CreationManager.shared
@@ -20,6 +21,7 @@ struct CreationView: View {
     @ObservedObject var peopleViewModel = PeopleViewModel.shared
     @ObservedObject var peopleManager = PeopleManager.shared
     @ObservedObject var sliderMessageManager = SliderMessageManager.shared
+    @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
     
     var body: some View {
         ZStack{
@@ -102,12 +104,44 @@ struct CreationView: View {
                     .bold()
                 Spacer()
             }
-            TextField("Amount", text: $viewModel.pubAmountString)
-                .padding(10)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .shadow(radius: 2)
-            Spacer().frame(height: 30)
+            HStack {
+                Button(action: {
+                    showCurrencyPicker.toggle()
+                }, label: {
+                    HStack {
+                        VStack(spacing: 2){
+                            Image(currencyPickerModel.pubSelectedCurrencyForTransaction.icon)
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                            Text(currencyPickerModel.pubSelectedCurrencyForTransaction.name)
+                                .font(.system(size: 10, weight: .semibold))
+                                .foregroundStyle(Color.black)
+                            
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .shadow(radius: 2)
+                    }
+                    .padding(.trailing, 5)
+                })
+                TextField("Amount", text: $viewModel.pubAmountString)
+                    .padding(10)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .shadow(radius: 2)
+            }
+            if showCurrencyPicker {
+                CurrencyPickerView(showSelectedView: false, selectedCurrency: currencyPickerModel.pubSelectedCurrencyForTransaction) { currency in
+                    currencyPickerModel.pubSelectedCurrencyForTransaction = currency
+                    showCurrencyPicker.toggle()
+                }
+                .padding(.top, 10)
+                Text("Your chosen primary currency is \(currencyPickerModel.pubSelectedCurrency.name). If you switch your current transaction currency, it won't appear in the list of current transactions. To view such transactions, please go to settings and update the currency type.")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(Color.red)
+            }
+            Spacer().frame(height: showCurrencyPicker ? 10 :30)
         }
         .padding(.horizontal)
     }
@@ -205,35 +239,6 @@ struct CreationView: View {
     }
     
     var peopleView: some View {
-        /*VStack {
-            HStack{
-                Text("People")
-                    .bold()
-                Spacer()
-            }
-            .padding(.horizontal)
-            ScrollView(.horizontal) {
-                HStack(spacing: 15) {
-                    if !peopleViewModel.pubIsPeopleLoading {
-                        ForEach(0..<peopleViewModel.pubPeopleData.count) { index in
-                            PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.pubPeopleData[index].amount, color: Color.white, isAdd: false, isSelectable: true, onTap: {
-                            })
-                        }
-                    }
-                    //MARK:  Default add button
-                    PeopleView(id: 0, title: "Add new member", image: "", amount: "", color: Color.gray, isAdd: true, isSelectable: false) {
-                        withAnimation {
-                            peopleViewModel.pubShowPeopleCreationView.toggle()
-                        }
-                    }
-                    
-                }
-                .padding(.horizontal, 5)
-            }
-            .frame(height: 130)
-            .padding(.horizontal)
-        }
-        .padding(.bottom)*/
         VStack {
             HStack{
                 Text("People")
@@ -241,7 +246,7 @@ struct CreationView: View {
                 Spacer()
             }
             .padding(.horizontal)
-            PeopleListView(isSelectable: false)
+            PeopleListView(isSelectable: true)
         }
     }
     
@@ -312,9 +317,8 @@ struct CreationView: View {
         Button(action: {
             let validInput = viewModel.checkValidInputs()
             if validInput.isEmpty {
-                creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, currencyTypeValue: currencyPickerModel.pubSelectedCurrencyForTransaction.id, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
                     if title == "Success" {
-                        peopleViewModel.pubLastUpdated = Date().timeIntervalSince1970
                         viewModel.clearFormData()
                         sliderMessageManager.pubSliderTitle = title
                         sliderMessageManager.pubSliderMessage = message

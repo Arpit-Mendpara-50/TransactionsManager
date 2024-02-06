@@ -23,15 +23,16 @@ class DatabaseManager: ObservableObject {
     
     //MARK: Transactions table
     public var transactions: Table?
-    public var id: Expression<Int64>!
-    public var title: Expression<String>!
-    public var amount: Expression<String>!
-    public var category: Expression<Int64>!
-    public var description: Expression<String>!
+    public var transactionId: Expression<Int64>!
+    public var transactionTitle: Expression<String>!
+    public var transactionAmount: Expression<String>!
+    public var transactionCategory: Expression<Int64>!
+    public var transactionDescription: Expression<String>!
     public var transactionType: Expression<Int>!
+    public var transactionCurrencyType: Expression<Int>!
     public var peopleIncluded: Expression<String>!
-    public var createdDate: Expression<String>!
-    public var updatedDate: Expression<String>!
+    public var transactionCreatedDate: Expression<String>!
+    public var transactionUpdatedDate: Expression<String>!
     
     //MARK: People table
     public var people: Table?
@@ -49,6 +50,8 @@ class DatabaseManager: ObservableObject {
     public var intTransactionBaseamount: Expression<String>!
     public var intTransactionConversionAmount: Expression<String>!
     public var intTransactionDescription: Expression<String>!
+    public var intTransactionBaseCurrencyType: Expression<Int>!
+    public var intTransactionConversionCurrencyType: Expression<Int>!
     public var intTransactionCreatedDate: Expression<String>!
     public var intTransactionUpdatedDate: Expression<String>!
     
@@ -71,28 +74,30 @@ class DatabaseManager: ObservableObject {
             
             transactions = Table("transactions")
             
-            id = Expression<Int64>("id")
-            title = Expression<String>("title")
-            amount = Expression<String>("amount")
-            category = Expression<Int64>("category")
-            description = Expression<String>("description")
+            transactionId = Expression<Int64>("transactionId")
+            transactionTitle = Expression<String>("transactionTitle")
+            transactionAmount = Expression<String>("transactionAmount")
+            transactionCategory = Expression<Int64>("transactionCategory")
+            transactionDescription = Expression<String>("transactionDescription")
             transactionType = Expression<Int>("transactionType")
+            transactionCurrencyType = Expression<Int>("transactionCurrencyType")
             peopleIncluded = Expression<String>("peopleIncluded")
-            createdDate = Expression<String>("createdDate")
-            updatedDate = Expression<String>("updatedDate")
+            transactionCreatedDate = Expression<String>("transactionCreatedDate")
+            transactionUpdatedDate = Expression<String>("transactionUpdatedDate")
             
             if !UserDefaults.standard.bool(forKey: "is_transactionsTable_created"){
                 if let db = db, let transactions = transactions{
                     try db.run(transactions.create(block: { table in
-                        table.column(id, primaryKey: true)
-                        table.column(title)
-                        table.column(amount)
-                        table.column(category)
-                        table.column(description)
+                        table.column(transactionId, primaryKey: true)
+                        table.column(transactionTitle)
+                        table.column(transactionAmount)
+                        table.column(transactionCategory)
+                        table.column(transactionDescription)
                         table.column(transactionType)
+                        table.column(transactionCurrencyType)
                         table.column(peopleIncluded)
-                        table.column(createdDate)
-                        table.column(updatedDate)
+                        table.column(transactionCreatedDate)
+                        table.column(transactionUpdatedDate)
                     }))
                     UserDefaults.standard.set(true, forKey: "is_transactionsTable_created")
                 }
@@ -148,6 +153,8 @@ class DatabaseManager: ObservableObject {
             intTransactionBaseamount = Expression<String>("intTransactionBaseamount")
             intTransactionConversionAmount = Expression<String>("intTransactionConversionAmount")
             intTransactionDescription = Expression<String>("intTransactionDescription")
+            intTransactionBaseCurrencyType = Expression<Int>("intTransactionBaseCurrencyType")
+            intTransactionConversionCurrencyType = Expression<Int>("intTransactionConversionCurrencyType")
             intTransactionCreatedDate = Expression<String>("intTransactionCreatedDate")
             intTransactionUpdatedDate = Expression<String>("intTransactionUpdatedDate")
             
@@ -159,6 +166,8 @@ class DatabaseManager: ObservableObject {
                         table.column(intTransactionBaseamount)
                         table.column(intTransactionConversionAmount)
                         table.column(intTransactionDescription)
+                        table.column(intTransactionBaseCurrencyType)
+                        table.column(intTransactionConversionCurrencyType)
                         table.column(intTransactionCreatedDate)
                         table.column(intTransactionUpdatedDate)
                     }))

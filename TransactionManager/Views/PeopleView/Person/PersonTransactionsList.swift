@@ -11,6 +11,8 @@ struct PersonTransactionsList: View {
     
     @ObservedObject var viewModel = PersonTransactionsViewModel.shared
     @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
+    @ObservedObject var helper = Helper.shared
+    
     @State var selectedMonth: String = ""
     @State var selectedYear: Int = 0
     
@@ -29,20 +31,15 @@ struct PersonTransactionsList: View {
                     }
                     VStack(alignment: .leading){
                         Text(person.personName).font(.system(size: 22)).bold().foregroundColor(Color.black)
-                        Text("$\(person.amount)").font(.system(size: 16)).bold().foregroundColor(Color.gray)
+                        Text("\(helper.currencyCode)\(person.amount)").font(.system(size: 16)).bold().foregroundColor(Color.gray)
                     }
                     Spacer()
                 }
                 .padding(.leading)
                 Line(padding: 0)
-//                HStack{
-//                    Image(systemName: "line.3.horizontal.decrease.circle.fill")
-//                        .resizable()
-//                        .frame(width: 30, height: 30)
-//                    Text("\(selectedMonth), \(selectedYear)")
-//                    Spacer()
-//                    MonthYearPicker(selectedMonth: $selectedMonth, selectedYear: $selectedYear)
-//                }
+                if !viewModel.pubPersonTransactions.isEmpty {
+                    InlineFilterView()
+                }
                 listView
             }
         }
@@ -98,16 +95,26 @@ struct PersonTransactionsList: View {
             if !viewModel.pubIsLoading {
                 if !transactionsViewModel.pubTransactionsSectionData.isEmpty {
                     ScrollView{
-                        ForEach(0..<transactionsViewModel.pubTransactionsSectionData.count) { index in
+                        ForEach(0..<transactionsViewModel.pubTransactionsSectionData.count, id: \.self) { index in
                             TransactionSectionView(dateText: transactionsViewModel.pubTransactionsSectionData[index].date, transactionData: transactionsViewModel.pubTransactionsSectionData[index].data)
                         }
                     }
                 } else {
-                    Text("No data found")
                     Spacer()
+                    Image("ic_nodata")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                    Text("No data found")
+                        .font(.system(size: 25, weight: .bold))
+                        .padding(.top)
+                    Spacer()
+                    Spacer().frame(height: 60+ScreenSize.safeTop())
                 }
             } else {
+                Spacer()
                 Text("Loading...")
+                    .font(.system(size: 25, weight: .bold))
+                    .padding(.top)
                 Spacer()
             }
         }

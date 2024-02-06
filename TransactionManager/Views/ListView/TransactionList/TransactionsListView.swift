@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TransactionsListView: View {
     
-    @Binding var isShowView: Bool
+//    @Binding var isShowView: Bool
     
     @ObservedObject var creationManager = CreationManager.shared
     @ObservedObject var viewModel = TransactionsViewModel.shared
@@ -17,17 +17,26 @@ struct TransactionsListView: View {
     var body: some View {
         VStack{
             header
+            if !viewModel.allTransactions.isEmpty {
+                InlineFilterView()
+            }
             VStack{
                     if !viewModel.pubTransactionsSectionData.isEmpty {
                         ScrollView{
-                            ForEach(0..<viewModel.pubTransactionsSectionData.count) { index in
+                            ForEach(0..<viewModel.pubTransactionsSectionData.count, id: \.self) { index in
                                 TransactionSectionView(dateText: viewModel.pubTransactionsSectionData[index].date, transactionData: viewModel.pubTransactionsSectionData[index].data)
                             }
                         }
                     } else {
                         Spacer()
+                        Image("ic_nodata")
+                            .resizable()
+                            .frame(width: 200, height: 200)
                         Text("No data found")
+                            .font(.system(size: 25, weight: .bold))
+                            .padding(.top)
                         Spacer()
+                        Spacer().frame(height: 60+ScreenSize.safeTop())
                     }
             }
             Spacer()
@@ -61,7 +70,7 @@ struct TransactionsListView: View {
     
     var backButton: some View{
         Button(action: {
-            isShowView = false
+            viewModel.pubShowListView = false
         }, label: {
             VStack{
                 Image(systemName: "chevron.backward")

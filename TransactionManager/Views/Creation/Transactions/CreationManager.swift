@@ -24,12 +24,12 @@ class CreationManager: ObservableObject {
     }
     @ObservedObject var databaseManager = DatabaseManager.shared
     
-    public func addTransaction(titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
+    public func addTransaction(titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, currencyTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
         let peopleIncludedString = CreationViewModel.shared.pubSelectedPeopleID.compactMap({String($0)}).joined(separator: ",")
         let messagePrefix = transactionTypeValue == 0 ? "Expense" : "Income"
         if let db = databaseManager.db, let transactions = databaseManager.transactions{
             do{
-                try db.run(transactions.insert(databaseManager.title <- titleValue, databaseManager.amount <- amountValue, databaseManager.category <- categoryValue, databaseManager.description <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString,  databaseManager.createdDate <- createdDateValue, databaseManager.updatedDate <- updatedDateValue))
+                try db.run(transactions.insert(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
                 DispatchQueue.main.async {
                     completionHandler("Success", "\(messagePrefix) is added successfully")
                 }

@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct TransactionTotalView: View {
-    
+    @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
     var title: String
     var amount: String
     var secondAmount: String = ""
     var color: Color
     var isAdd: Bool
+    var showFlags: Bool = false
     var onShowList: (()->Void)?
     var onAdd: (()->Void)?
     
     var body: some View {
-        ZStack {
+        let (baseFlags, conversionFlags) = transactionsViewModel.getIntTransactionsFlags()
+        return ZStack {
             VStack(spacing: 0){
                 HStack{
                     Spacer().frame(width: 20)
@@ -29,24 +31,34 @@ struct TransactionTotalView: View {
                 }
                 .frame(height: 40)
                 .background(color.opacity(0.7))
-                HStack {
+                HStack(spacing: 5){
                     Spacer().frame(width: 20)
+                    if showFlags {
+                        MultiCurrencyView(flags: baseFlags)
+                            .frame(height: 40)
+                    }
                     Text(amount)
                         .bold()
                         .font(.system(size: 20))
                         .foregroundStyle(Color.black)
+                        .offset(x: showFlags ? -CGFloat(((baseFlags.count-1)*15)) : 0)
                     Spacer()
                 }
                 .frame(height: !secondAmount.isEmpty ? 40 : 50)
                 .background(Color.white)
                 if !secondAmount.isEmpty {
                     Line(padding: 0)
-                    HStack {
+                    HStack(spacing: 5){
                         Spacer().frame(width: 20)
+                        if showFlags {
+                            MultiCurrencyView(flags: conversionFlags)
+                                .frame(height: 40)
+                        }
                         Text(secondAmount)
                             .bold()
                             .font(.system(size: 20))
                             .foregroundStyle(Color.black)
+                            .offset(x: showFlags ? -CGFloat(((conversionFlags.count-1)*15)) : 0)
                         Spacer()
                     }
                     .frame(height: !secondAmount.isEmpty ? 40 : 50)
@@ -91,6 +103,7 @@ struct TransactionTotalView: View {
 }
 
 struct InternationalTransactionTotalView: View {
+    @ObservedObject var helper = Helper.shared
     
     var baseAmount: String
     var multiplierAmount: String
@@ -101,7 +114,7 @@ struct InternationalTransactionTotalView: View {
         VStack(spacing: 0){
             HStack{
                 Spacer().frame(width: 20)
-                Text("$\(baseAmount) x ₹\(multiplierAmount)")
+                Text("\(helper.currencyCode)\(baseAmount) x ₹\(multiplierAmount)")
                     .bold()
                 Spacer()
             }
