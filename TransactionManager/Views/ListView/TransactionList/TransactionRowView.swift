@@ -87,7 +87,8 @@ struct TransactionRowView: View {
                                     if showToolBar {
                                         HStack {
                                             Button(action: {
-                                                transactionsViewModel.populateIncomeData(title: transactionData.title, amount: transactionData.amount, description: transactionData.description, category: transactionData.category, createdDate: transactionData.createdDate)
+                                                transactionsViewModel.populateIncomeData(id: transactionData.id, title: transactionData.title, amount: transactionData.amount, description: transactionData.description, category: transactionData.category, createdDate: transactionData.createdDate)
+                                                CreationViewModel.shared.pubIsUpdatingTransaction = true
                                                 homeViewModel.pubShowCreationView = true
                                             }, label: {
                                                 VStack {
@@ -162,7 +163,8 @@ struct TransactionRowView: View {
                 if transactionData.transactionType == 0 && showToolBar {
                     VStack {
                         Button(action: {
-                            transactionsViewModel.populateExpenseData(title: transactionData.title, amount: transactionData.amount, description: transactionData.description, category: transactionData.category, createdDate: transactionData.createdDate, peopleIncluded: transactionData.peopleIncluded)
+                            transactionsViewModel.populateExpenseData(id: transactionData.id, title: transactionData.title, amount: transactionData.amount, description: transactionData.description, category: transactionData.category, createdDate: transactionData.createdDate, peopleIncluded: transactionData.peopleIncluded)
+                            CreationViewModel.shared.pubIsUpdatingTransaction = true
                             homeViewModel.pubShowCreationView = true
                         }, label: {
                             VStack {

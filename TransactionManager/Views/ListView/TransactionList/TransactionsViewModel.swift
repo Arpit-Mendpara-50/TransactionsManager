@@ -211,7 +211,8 @@ class TransactionsViewModel : ObservableObject {
         return (returnBaseFlags, returnConversionFlags)
     }
     
-    func populateExpenseData(title: String, amount: String, description: String, category: CategoryModel?, createdDate: String, peopleIncluded: String) {
+    func populateExpenseData(id: Int64, title: String, amount: String, description: String, category: CategoryModel?, createdDate: String, peopleIncluded: String) {
+        creationViewModel.pubTransactionId = id
         creationViewModel.pubCurrentType = self.pubCurrentListType
         creationViewModel.pubTitleString = title
         creationViewModel.pubAmountString = amount
@@ -221,7 +222,8 @@ class TransactionsViewModel : ObservableObject {
         creationViewModel.pubSelectedPeopleID = creationViewModel.convertStringToPeople(peopleString: peopleIncluded)
     }
     
-    func populateIncomeData(title: String, amount: String, description: String, category: CategoryModel?, createdDate: String) {
+    func populateIncomeData(id: Int64, title: String, amount: String, description: String, category: CategoryModel?, createdDate: String) {
+        creationViewModel.pubTransactionId = id
         creationViewModel.pubCurrentType = self.pubCurrentListType
         creationViewModel.pubTitleString = title
         creationViewModel.pubAmountString = amount

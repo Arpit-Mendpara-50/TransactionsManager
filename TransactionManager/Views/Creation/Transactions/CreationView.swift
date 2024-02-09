@@ -317,22 +317,43 @@ struct CreationView: View {
         Button(action: {
             let validInput = viewModel.checkValidInputs()
             if validInput.isEmpty {
-                creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, currencyTypeValue: currencyPickerModel.pubSelectedCurrencyForTransaction.id, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
-                    if title == "Success" {
-                        viewModel.clearFormData()
-                        sliderMessageManager.pubSliderTitle = title
-                        sliderMessageManager.pubSliderMessage = message
-                        transactionsManager.getTransactionsList()
-                        withAnimation {
+                if viewModel.pubIsUpdatingTransaction {
+                    guard let id = viewModel.pubTransactionId else {return}
+                    creationManager.updateTransaction(transactionId: id, titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, currencyTypeValue: currencyPickerModel.pubSelectedCurrencyForTransaction.id, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                        if title == "Success" {
+                            viewModel.clearFormData()
+                            sliderMessageManager.pubSliderTitle = title
+                            sliderMessageManager.pubSliderMessage = message
+                            transactionsManager.getTransactionsList()
+                            transactionsViewModel.loadSectionData(data: transactionsViewModel.allTransactions)
+                            withAnimation {
+                                sliderMessageManager.pubShowSliderMessageView = true
+                                homeViewModel.pubShowCreationView = false
+                            }
+                        } else {
+                            sliderMessageManager.pubSliderTitle = title
+                            sliderMessageManager.pubSliderMessage = message
                             sliderMessageManager.pubShowSliderMessageView = true
-                            homeViewModel.pubShowCreationView = false
                         }
-                    } else {
-                        sliderMessageManager.pubSliderTitle = title
-                        sliderMessageManager.pubSliderMessage = message
-                        sliderMessageManager.pubShowSliderMessageView = true
-                    }
-                })
+                    })
+                } else {
+                    creationManager.addTransaction(titleValue: viewModel.pubTitleString, amountValue: viewModel.pubAmountString, categoryValue: viewModel.pubSelectedCategory?.id ?? 0, descriptionValue: viewModel.pubDescriptionString, transactionTypeValue: viewModel.pubCurrentType.rawValue, currencyTypeValue: currencyPickerModel.pubSelectedCurrencyForTransaction.id, peopleIncluded: viewModel.pubSelectedPeopleID, createdDateValue: viewModel.pubSelectedDate.ISO8601Format(), updatedDateValue: Date().ISO8601Format(), completionHandler: { title, message in
+                        if title == "Success" {
+                            viewModel.clearFormData()
+                            sliderMessageManager.pubSliderTitle = title
+                            sliderMessageManager.pubSliderMessage = message
+                            transactionsManager.getTransactionsList()
+                            withAnimation {
+                                sliderMessageManager.pubShowSliderMessageView = true
+                                homeViewModel.pubShowCreationView = false
+                            }
+                        } else {
+                            sliderMessageManager.pubSliderTitle = title
+                            sliderMessageManager.pubSliderMessage = message
+                            sliderMessageManager.pubShowSliderMessageView = true
+                        }
+                    })
+                }
             } else {
                 sliderMessageManager.pubSliderTitle = "Failed"
                 sliderMessageManager.pubSliderMessage = validInput
@@ -343,7 +364,7 @@ struct CreationView: View {
         }, label: {
             HStack(spacing: 10){
                 Spacer()
-                Text("Save")
+                Text(viewModel.pubIsUpdatingTransaction ? "Update" : "Save")
                     .bold()
                     .foregroundColor(Color.white)
                 Image(systemName: "checkmark")

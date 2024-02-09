@@ -23,6 +23,7 @@ class CreationViewModel : ObservableObject {
     
     @Published var pubPresentMapPicker = false
     @Published var pubLastUpdatedTimestamp = Date().timeIntervalSince1970
+    @Published var pubTransactionId: Int64?
     @Published var pubTitleString = ""
     @Published var pubAmountString = ""
     @Published var pubDescriptionString = ""
@@ -31,6 +32,7 @@ class CreationViewModel : ObservableObject {
     @Published var pubCategoryData: [CategoryModel] = []
     @Published var pubCurrentType: CreationType = .income
     @Published var pubSelectedPeopleID: [Int64] = []
+    @Published var pubIsUpdatingTransaction = false
     
     public func clearFormData(){
         self.pubSelectedPeopleID.removeAll()

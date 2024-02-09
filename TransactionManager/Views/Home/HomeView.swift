@@ -127,6 +127,7 @@ struct HomeView: View {
                 transactionsViewModel.pubCurrentListType = .income
                 homeViewModel.openListPage()
             }, onAdd: {
+                creationViewModel.pubIsUpdatingTransaction = false
                 creationViewModel.pubCurrentType = .income
                 homeViewModel.pubShowCreationView = true
             })
@@ -134,6 +135,7 @@ struct HomeView: View {
                 transactionsViewModel.pubCurrentListType = .expense
                 homeViewModel.openListPage()
             }, onAdd: {
+                creationViewModel.pubIsUpdatingTransaction = false
                 creationViewModel.pubCurrentType = .expense
                 homeViewModel.pubShowCreationView = true
             })

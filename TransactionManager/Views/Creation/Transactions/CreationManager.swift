@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 import SQLite
 
 class CreationManager: ObservableObject {
@@ -22,7 +21,7 @@ class CreationManager: ObservableObject {
         case income = 1
         case transaction = 2
     }
-    @ObservedObject var databaseManager = DatabaseManager.shared
+    var databaseManager = DatabaseManager.shared
     
     public func addTransaction(titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, currencyTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
         let peopleIncludedString = CreationViewModel.shared.pubSelectedPeopleID.compactMap({String($0)}).joined(separator: ",")
@@ -36,6 +35,24 @@ class CreationManager: ObservableObject {
                 }
             }catch{
                 completionHandler("Failed", "Failed to add \(messagePrefix)")
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    public func updateTransaction(transactionId: Int64, titleValue: String, amountValue: String, categoryValue: Int64, descriptionValue: String, transactionTypeValue: Int, currencyTypeValue: Int, peopleIncluded: [Int64], createdDateValue: String, updatedDateValue: String, completionHandler: @escaping (String, String) -> Void){
+        let peopleIncludedString = CreationViewModel.shared.pubSelectedPeopleID.compactMap({String($0)}).joined(separator: ",")
+        let messagePrefix = transactionTypeValue == 0 ? "Expense" : "Income"
+        if let db = databaseManager.db, let transactions = databaseManager.transactions{
+            do{
+                let transaction: Table = transactions.filter(databaseManager.transactionId == transactionId)
+                try db.run(transaction.update(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
+                DispatchQueue.main.async {
+                    completionHandler("Success", "\(messagePrefix) is updated successfully")
+                    PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: currencyTypeValue)
+                }
+            }catch{
+                completionHandler("Failed", "Failed to update \(messagePrefix)")
                 print(error.localizedDescription)
             }
         }
