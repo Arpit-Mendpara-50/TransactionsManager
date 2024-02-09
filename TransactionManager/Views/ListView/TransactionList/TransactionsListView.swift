@@ -17,10 +17,9 @@ struct TransactionsListView: View {
     var body: some View {
         VStack{
             header
-            if !viewModel.allTransactions.isEmpty {
+            if !viewModel.pubIsTransactionsLoading {
                 InlineFilterView()
-            }
-            VStack{
+                VStack{
                     if !viewModel.pubTransactionsSectionData.isEmpty {
                         ScrollView{
                             ForEach(0..<viewModel.pubTransactionsSectionData.count, id: \.self) { index in
@@ -38,8 +37,17 @@ struct TransactionsListView: View {
                         Spacer()
                         Spacer().frame(height: 60+ScreenSize.safeTop())
                     }
+                }
+                Spacer()
+            } else {
+                VStack {
+                    Spacer()
+                    ProgressView("Loading...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                    Spacer()
+                }
             }
-            Spacer()
         }
         .edgesIgnoringSafeArea(.all)
         .background(Color.white)
@@ -51,7 +59,7 @@ struct TransactionsListView: View {
             HStack{
                 backButton
                 Spacer()
-                Text("Transactions").font(.system(size: 17)).bold().foregroundColor(Color.black)
+                Text(viewModel.getTitle()).font(.system(size: 17)).bold().foregroundColor(Color.black)
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                     .background(Color.white)
@@ -63,7 +71,7 @@ struct TransactionsListView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(viewModel.getTopColor().opacity(0.7))
         .shadow(radius: 5)
         
     }

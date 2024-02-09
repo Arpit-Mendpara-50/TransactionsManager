@@ -24,6 +24,7 @@ class PersonTransactionsViewModel : ObservableObject {
     @ObservedObject var transactionsManager = TransactionsManager.shared
     @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
     @ObservedObject var filterViewModel = FilterViewModel.shared
+    @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
     
     
     func openPeronTransactionListView(person: PeopleModel) {
@@ -44,7 +45,7 @@ class PersonTransactionsViewModel : ObservableObject {
 //            print(filteredData.map({$0.createdDate}))
 //            self.pubPersonTransactions = filteredData
             let monthAndYear = "\(filterViewModel.pubSelectedMonth) \(filterViewModel.pubSelectedYear)"
-            let filteredData = filterViewModel.applyFilter(data: transactionsData, filterMonthAndYear: monthAndYear, selectedCategory: filterViewModel.pubSelectedCategory, amountRange: filterViewModel.pubSelectedRange, currency: filterViewModel.pubSelectedCurrency)
+            let filteredData = filterViewModel.applyFilter(data: transactionsData, filterMonthAndYear: monthAndYear, selectedCategory: filterViewModel.pubSelectedCategory, amountRange: filterViewModel.pubSelectedRange, currency: currencyPickerModel.pubSelectedCurrency)
             self.pubPersonTransactions = filteredData
             transactionsViewModel.pubCurrentListType = .transaction
             transactionsViewModel.pubTransactionsSectionData.removeAll()

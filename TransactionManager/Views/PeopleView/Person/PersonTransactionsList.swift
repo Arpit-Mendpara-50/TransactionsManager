@@ -11,6 +11,7 @@ struct PersonTransactionsList: View {
     
     @ObservedObject var viewModel = PersonTransactionsViewModel.shared
     @ObservedObject var transactionsViewModel = TransactionsViewModel.shared
+    @ObservedObject var peopleViewModel = PeopleViewModel.shared
     @ObservedObject var helper = Helper.shared
     
     @State var selectedMonth: String = ""
@@ -31,15 +32,13 @@ struct PersonTransactionsList: View {
                     }
                     VStack(alignment: .leading){
                         Text(person.personName).font(.system(size: 22)).bold().foregroundColor(Color.black)
-                        Text("\(helper.currencyCode)\(person.amount)").font(.system(size: 16)).bold().foregroundColor(Color.gray)
+                        Text("\(helper.currencyCode)\(peopleViewModel.extractPersonAmount(amountString: person.amount))").font(.system(size: 16)).bold().foregroundColor(Color.gray)
                     }
                     Spacer()
                 }
                 .padding(.leading)
                 Line(padding: 0)
-                if !viewModel.pubPersonTransactions.isEmpty {
-                    InlineFilterView()
-                }
+                InlineFilterView()
                 listView
             }
         }

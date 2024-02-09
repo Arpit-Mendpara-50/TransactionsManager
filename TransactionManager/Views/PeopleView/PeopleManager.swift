@@ -15,6 +15,8 @@ class PeopleManager: ObservableObject {
         return mgr
     }()
     
+    var currencyPickerModel = CurrencyPickerModel.shared
+    var transactionsViewModel = TransactionsViewModel.shared
     var databaseManager = DatabaseManager.shared
     var viewModel = PeopleViewModel.shared
     
@@ -66,6 +68,9 @@ class PeopleManager: ObservableObject {
                 print(error.localizedDescription)
             }
             viewModel.pubPeopleData = peopleArray
+            if !peopleArray.isEmpty {
+                print("people amount: \(peopleArray[0].amount)")
+            }
             viewModel.pubIsPeopleLoading = false
         }else{
             print("Something went wrong")
@@ -73,15 +78,30 @@ class PeopleManager: ObservableObject {
         }
     }
     
-    public func getPersonById(id: Int64) -> PeopleModel? {
-        let people = viewModel.pubPeopleData
-        for item in people {
-            if item.id == id {
-                return item
+    public func getPersonAmount(personId: Int64) -> String{
+        var returnAmount = 0.0
+        let currency = currencyPickerModel.pubSelectedCurrency.id
+        let allTransactions = transactionsViewModel.allTransactions
+        for transaction in allTransactions {
+            let peopleIncluded = transactionsViewModel.getPeopleIncluded(people: transaction.peopleIncluded)
+            if peopleIncluded.contains(where: {$0.id == personId}) {
+                if transaction.currencyType == currency {
+                    returnAmount += Double(transaction.amount) ?? 0.0
+                }
             }
         }
-        return nil
+        return String(format: "%.2f", returnAmount)
     }
+    
+//    public func getPersonById(id: Int64) -> PeopleModel? {
+//        let people = viewModel.pubPeopleData
+//        for item in people {
+//            if item.id == id {
+//                return item
+//            }
+//        }
+//        return nil
+//    }
     
 //    public func getPersonAmount(id: Int64) -> String {
 //        var returnAmount = 0.0

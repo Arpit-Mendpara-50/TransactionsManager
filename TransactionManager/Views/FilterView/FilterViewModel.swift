@@ -14,7 +14,7 @@ class FilterViewModel : ObservableObject {
         let model = FilterViewModel(
         )
         let (month, year) = model.currentMonthAndYear()
-        model.getPreSelectedCurrency()
+//        model.getPreSelectedCurrency()
         model.pubSelectedMonth = month
         model.pubSelectedYear = year
         return model
@@ -25,7 +25,7 @@ class FilterViewModel : ObservableObject {
     @Published var pubSelectedYear: String = ""
     @Published var pubSelectedCategory: CategoryModel?
     @Published var pubSelectedRange: Double = 0.0
-    @Published var pubSelectedCurrency: Currency?
+//    @Published var pubSelectedCurrency: Currency?
     @Published var pubLastUpdated = Date().timeIntervalSince1970
     
     
@@ -77,10 +77,7 @@ class FilterViewModel : ObservableObject {
     
     func getUpperRangeForSlider() -> Double {
         let allTransactions = TransactionsViewModel.shared.allTransactions.map({Double($0.amount)})
-        guard !allTransactions.isEmpty else {
-            return 0.0 // Return 0.0 for an empty array
-        }
-        var largestNumber = allTransactions[0] ?? 0.0
+        var largestNumber = 10.0
         
         for number in allTransactions {
             if let number = number, number > largestNumber {
@@ -104,10 +101,10 @@ class FilterViewModel : ObservableObject {
         return false
     }
     
-    func getPreSelectedCurrency() {
-        guard let currency = pubSelectedCurrency else{
-            pubSelectedCurrency = CurrencyPickerModel.shared.pubSelectedCurrency
-            return
-        }
-    }
+//    func getPreSelectedCurrency() {
+//        guard let currency = currencyPickerModel.pubSelectedCurrency else{
+//            pubSelectedCurrency = CurrencyPickerModel.shared.pubSelectedCurrency
+//            return
+//        }
+//    }
 }

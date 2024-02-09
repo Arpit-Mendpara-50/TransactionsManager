@@ -163,12 +163,14 @@ class CategoryManager: ObservableObject {
     }
     
     public func deleteCategory(idValue: Int64){
-        //        do{
-        //            let category: Table = categories.filter(id == idValue)
-        //
-        //            try db.run(category.delete())
-        //        }catch{
-        //            print(error.localizedDescription)
-        //        }
+        do{
+            if let db = db, let categories = categories {
+                let category: Table = categories.filter(id == idValue)
+                
+                try db.run(category.delete())
+            }
+        }catch{
+            print(error.localizedDescription)
+        }
     }
 }

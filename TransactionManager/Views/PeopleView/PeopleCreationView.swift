@@ -127,7 +127,7 @@ struct PeopleCreationView: View {
                         Spacer()
                     }
                     .frame(height: 50, alignment: .center)
-                    .background(Color.green)
+                    .background(Color.DarkBlue.opacity(0.7))
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(radius: 3)
                     .padding(.horizontal)

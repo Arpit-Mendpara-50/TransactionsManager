@@ -32,19 +32,12 @@ class CreationManager: ObservableObject {
                 try db.run(transactions.insert(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
                 DispatchQueue.main.async {
                     completionHandler("Success", "\(messagePrefix) is added successfully")
+//                    PeopleViewModel.shared.updatePeople(peopleIncluded: peopleIncluded, amountValue: amountValue, transactionCurrencyType: currencyTypeValue)
+                    PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: currencyTypeValue)
                 }
             }catch{
                 completionHandler("Failed", "Failed to add \(messagePrefix)")
                 print(error.localizedDescription)
-            }
-        }
-        for personId in peopleIncluded {
-            let totalAmount = Double(amountValue) ?? 0.0
-            let newAmout = totalAmount / Double(peopleIncluded.count)
-            let person = PeopleManager.shared.getPersonById(id: personId)
-            if let person = person {
-                let finalAmount = (Double(person.amount) ?? 0.0) + newAmout
-                PeopleManager.shared.updatePerson(personId: personId, nameValue: person.personName, imageValue: person.imagePath, amountValue: String(format: "%.2f", finalAmount), createdDateValue: person.createdDate, updatedDateValue: Date().ISO8601Format())
             }
         }
     }

@@ -179,6 +179,21 @@ class DatabaseManager: ObservableObject {
             print(error.localizedDescription)
         }
     }
+    
+    func deleteTransaction(idValue: Int64, completionHandler: @escaping (String, String) -> Void) {
+            do{
+                if let db = db, let transactions = transactions {
+                    let transaction: Table = transactions.filter(transactionId == idValue)
+                    try db.run(transaction.delete())
+                    DispatchQueue.main.async {
+                        completionHandler("Success", "Successfully deleted transaction")
+                    }
+                }
+            }catch{
+                print(error.localizedDescription)
+                completionHandler("Failed", "Failed tp delete transaction")
+            }
+    }
 }
 
 

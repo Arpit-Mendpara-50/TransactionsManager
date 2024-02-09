@@ -82,4 +82,18 @@ class CreationViewModel : ObservableObject {
         return ""
     }
     
+    public func convertStringToDate(stringDate: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return dateFormatter.date(from: stringDate) ?? Date()
+    }
+    
+    public func convertStringToPeople(peopleString: String) -> [Int64] {
+        let componets = peopleString.components(separatedBy: ",")
+        if !componets.isEmpty {
+            return componets.map({Int64($0) ?? 0})
+        }
+        return []
+    }
+    
 }

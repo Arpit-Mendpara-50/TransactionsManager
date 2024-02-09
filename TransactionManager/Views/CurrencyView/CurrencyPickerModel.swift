@@ -19,11 +19,12 @@ class CurrencyPickerModel : ObservableObject {
     /// Prepare the shared instance
     public static var shared:CurrencyPickerModel = {
         let model = CurrencyPickerModel()
+        model.getSelectedCurrency()
         return model
     }()
     
-    @Published var pubSelectedCurrency: Currency = Currency(id: 1, name: "INR", icon: "ic_india", code: "₹")
-    @Published var pubSelectedCurrencyForTransaction: Currency = Currency(id: 1, name: "INR", icon: "ic_india", code: "₹")
+    @Published var pubSelectedCurrency: Currency = Currency(id: 2, name: "CAD", icon: "ic_canada", code: "$")
+    @Published var pubSelectedCurrencyForTransaction: Currency = Currency(id: 2, name: "CAD", icon: "ic_canada", code: "$")
     @Published var pubShowCurrencyListView: Bool = false
     
     let currencies = [
@@ -37,7 +38,7 @@ class CurrencyPickerModel : ObservableObject {
     
     func getSelectedCurrency() {
         let currencyId = UserDefaults.standard.integer(forKey: "SelectedCurrency")
-        if let currency = CurrencyPickerModel.shared.currencies.first(where: {$0.id == currencyId}) {
+        if let currency = self.currencies.first(where: {$0.id == currencyId}) {
             pubSelectedCurrency = currency
             pubSelectedCurrencyForTransaction = currency
         }

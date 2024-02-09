@@ -18,6 +18,7 @@ class TransactionsViewModel : ObservableObject {
     @ObservedObject var filterViewModel = FilterViewModel.shared
     @ObservedObject var helper = Helper.shared
     @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
+    @ObservedObject var creationViewModel = CreationViewModel.shared
     
     @Published var pubTransactionsData: [TransactionsModel] = []
     @Published var pubTransactionsSectionData: [TransactionSectionData] = []
@@ -26,6 +27,7 @@ class TransactionsViewModel : ObservableObject {
     @Published var pubCurrentListType: CreationType = .income
     
     @Published var allTransactions: [TransactionsModel] = []
+    @Published var filterdData: [TransactionsModel] = []
     @Published var incomeTransactions: [TransactionsModel] = []
     @Published var expenseTransactions: [TransactionsModel] = []
     
@@ -34,7 +36,28 @@ class TransactionsViewModel : ObservableObject {
     @Published var pubIntTransactionsSectionData: [IntTransactionSectionData] = []
     @Published var pubShowListView = false
     @Published var pubShowIntListView = false
+    @Published var pubLastUpdated = Date().timeIntervalSince1970
     
+    func getTitle() -> String {
+        if self.pubCurrentListType == .income{
+            return "Income"
+        }else if self.pubCurrentListType == .expense{
+            return "Expenses"
+        }else{
+            return "Transactions"
+        }
+    }
+    
+    func getTopColor() -> Color {
+//        if self.pubCurrentListType == .income{
+//            return Color.green
+//        }else if self.pubCurrentListType == .expense{
+//            return Color.red
+//        }else{
+//            return Color.gray
+//        }
+        return Color.DarkBlue
+    }
     
     func loadSectionData(data: [TransactionsModel]){
         var dates = [String]()
@@ -165,7 +188,7 @@ class TransactionsViewModel : ObservableObject {
     
     func filterTransactionsData() {
         let monthAndYear = "\(filterViewModel.pubSelectedMonth) \(filterViewModel.pubSelectedYear)"
-        let filteredData = filterViewModel.applyFilter(data: allTransactions, filterMonthAndYear: monthAndYear, selectedCategory: filterViewModel.pubSelectedCategory, amountRange: filterViewModel.pubSelectedRange, currency: filterViewModel.pubSelectedCurrency)
+        let filteredData = filterViewModel.applyFilter(data: allTransactions, filterMonthAndYear: monthAndYear, selectedCategory: filterViewModel.pubSelectedCategory, amountRange: filterViewModel.pubSelectedRange, currency: currencyPickerModel.pubSelectedCurrency)
         self.loadSectionData(data: filteredData)
     }
     
@@ -190,5 +213,23 @@ class TransactionsViewModel : ObservableObject {
         return (returnBaseFlags, returnConversionFlags)
     }
     
+    func populateExpenseData(title: String, amount: String, description: String, category: CategoryModel?, createdDate: String, peopleIncluded: String) {
+        creationViewModel.pubCurrentType = self.pubCurrentListType
+        creationViewModel.pubTitleString = title
+        creationViewModel.pubAmountString = amount
+        creationViewModel.pubDescriptionString = description
+        creationViewModel.pubSelectedCategory = category
+        creationViewModel.pubSelectedDate = creationViewModel.convertStringToDate(stringDate: createdDate)
+        creationViewModel.pubSelectedPeopleID = creationViewModel.convertStringToPeople(peopleString: peopleIncluded)
+    }
+    
+    func populateIncomeData(title: String, amount: String, description: String, category: CategoryModel?, createdDate: String) {
+        creationViewModel.pubCurrentType = self.pubCurrentListType
+        creationViewModel.pubTitleString = title
+        creationViewModel.pubAmountString = amount
+        creationViewModel.pubDescriptionString = description
+        creationViewModel.pubSelectedCategory = category
+        creationViewModel.pubSelectedDate = creationViewModel.convertStringToDate(stringDate: createdDate)
+    }
     
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CreationView: View {
-    @Binding var isShowView: Bool
     @State var showCategoryView = false
     @State var showCalendarView = false
     @State var showCurrencyPicker = false
@@ -22,6 +21,7 @@ struct CreationView: View {
     @ObservedObject var peopleManager = PeopleManager.shared
     @ObservedObject var sliderMessageManager = SliderMessageManager.shared
     @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
+    @ObservedObject var homeViewModel = HomeViewModel.shared
     
     var body: some View {
         ZStack{
@@ -273,14 +273,14 @@ struct CreationView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(Color.DarkBlue.opacity(0.7))
         .shadow(radius: 5)
         
     }
     
     var backButton: some View{
         Button(action: {
-            isShowView = false
+            homeViewModel.pubShowCreationView = false
             viewModel.clearFormData()
         }, label: {
             VStack{
@@ -325,7 +325,7 @@ struct CreationView: View {
                         transactionsManager.getTransactionsList()
                         withAnimation {
                             sliderMessageManager.pubShowSliderMessageView = true
-                            isShowView = false
+                            homeViewModel.pubShowCreationView = false
                         }
                     } else {
                         sliderMessageManager.pubSliderTitle = title
@@ -353,7 +353,7 @@ struct CreationView: View {
                 Spacer()
             }
             .frame(height: 50, alignment: .center)
-            .background(Color.green)
+            .background(Color.DarkBlue.opacity(0.7))
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .shadow(radius: 2)
         })

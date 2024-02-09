@@ -33,7 +33,7 @@ struct TransactionTotalView: View {
                 .background(color.opacity(0.7))
                 HStack(spacing: 5){
                     Spacer().frame(width: 20)
-                    if showFlags {
+                    if showFlags && !baseFlags.isEmpty {
                         MultiCurrencyView(flags: baseFlags)
                             .frame(height: 40)
                     }
@@ -41,7 +41,7 @@ struct TransactionTotalView: View {
                         .bold()
                         .font(.system(size: 20))
                         .foregroundStyle(Color.black)
-                        .offset(x: showFlags ? -CGFloat(((baseFlags.count-1)*15)) : 0)
+                        .offset(x: (showFlags && !baseFlags.isEmpty) ? -CGFloat(((baseFlags.count-1)*15)) : 0)
                     Spacer()
                 }
                 .frame(height: !secondAmount.isEmpty ? 40 : 50)
@@ -50,7 +50,7 @@ struct TransactionTotalView: View {
                     Line(padding: 0)
                     HStack(spacing: 5){
                         Spacer().frame(width: 20)
-                        if showFlags {
+                        if showFlags && !conversionFlags.isEmpty {
                             MultiCurrencyView(flags: conversionFlags)
                                 .frame(height: 40)
                         }
@@ -58,7 +58,7 @@ struct TransactionTotalView: View {
                             .bold()
                             .font(.system(size: 20))
                             .foregroundStyle(Color.black)
-                            .offset(x: showFlags ? -CGFloat(((conversionFlags.count-1)*15)) : 0)
+                            .offset(x: (showFlags && !conversionFlags.isEmpty) ? -CGFloat(((conversionFlags.count-1)*15)) : 0)
                         Spacer()
                     }
                     .frame(height: !secondAmount.isEmpty ? 40 : 50)

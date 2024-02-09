@@ -20,7 +20,7 @@ struct IntTransactionsListView: View {
             VStack{
                     if !viewModel.pubIntTransactionsSectionData.isEmpty {
                         ScrollView{
-                            ForEach(0..<viewModel.pubIntTransactionsSectionData.count) { index in
+                            ForEach(0..<viewModel.pubIntTransactionsSectionData.count, id: \.self) { index in
                                 IntTransactionSectionView(dateText: viewModel.pubIntTransactionsSectionData[index].date, transactionData: viewModel.pubIntTransactionsSectionData[index].data)
                             }
                         }
@@ -59,7 +59,7 @@ struct IntTransactionsListView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(Color.DarkBlue.opacity(0.7))
         .shadow(radius: 5)
         
     }

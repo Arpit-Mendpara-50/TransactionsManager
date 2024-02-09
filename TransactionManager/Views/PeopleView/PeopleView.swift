@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeopleView: View {
-    @State var isSelected: Bool = false
+    @ObservedObject var creationViewModel = CreationViewModel.shared
     var id: Int64
     var title: String
     var image: String
@@ -20,16 +20,14 @@ struct PeopleView: View {
     var body: some View {
         Button(action: {
             onTap?()
-            isSelected.toggle()
-            if isSelectable {
-                if isSelected {
-                    CreationViewModel.shared.pubSelectedPeopleID.append(id)
-                } else {
-                    CreationViewModel.shared.pubSelectedPeopleID = CreationViewModel.shared.pubSelectedPeopleID.filter({$0 != id})
-                }
-                
-                print("people ID: \(CreationViewModel.shared.pubSelectedPeopleID)")
-            }
+//            if isSelectable {
+//                if creationViewModel.pubSelectedPeopleID.contains(id) {
+//                    creationViewModel.pubSelectedPeopleID = creationViewModel.pubSelectedPeopleID.filter({$0 != id})
+//                } else {
+//                    creationViewModel.pubSelectedPeopleID.append(id)
+//                }
+//                print("people ID: \(CreationViewModel.shared.pubSelectedPeopleID)")
+//            }
         }, label: {
             VStack{
                 if isAdd {
@@ -64,7 +62,7 @@ struct PeopleView: View {
                                 .bold()
                             Spacer()
                         }
-                        if isSelectable && isSelected{
+                        if isSelectable && creationViewModel.pubSelectedPeopleID.contains(id){
                             VStack {
                                 HStack {
                                     Spacer()

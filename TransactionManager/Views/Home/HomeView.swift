@@ -9,10 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var showCreationView = false
-    @State var showInternationalCreationView = false
-//    @State var showListView = false
-//    @State var showIntListView = false
+    //    @State var showListView = false
+    //    @State var showIntListView = false
+    @ObservedObject var homeViewModel = HomeViewModel.shared
     @ObservedObject var creationManager = CreationManager.shared
     @ObservedObject var creationViewModel = CreationViewModel.shared
     @ObservedObject var transactionsManager = TransactionsManager.shared
@@ -52,55 +51,15 @@ struct HomeView: View {
                                 }
                             })
                         }.padding()
-                        VStack(spacing: 15) {
-                            TransactionTotalView(title: "Total Income", amount: transactionsViewModel.transactionTotal(type: .income), color: Color.green, isAdd: true, onShowList: {
-                                transactionsViewModel.pubCurrentListType = .income
-                                openListPage()
-                            }, onAdd: {
-                                creationViewModel.pubCurrentType = .income
-                                showCreationView = true
-                            })
-                            TransactionTotalView(title: "Total Expense", amount: transactionsViewModel.transactionTotal(type: .expense), color: Color.red, isAdd: true, onShowList: {
-                                transactionsViewModel.pubCurrentListType = .expense
-                                openListPage()
-                            }, onAdd: {
-                                creationViewModel.pubCurrentType = .expense
-                                showCreationView = true
-                            })
-                            TransactionTotalView(title: "Remaining Balance", amount: transactionsViewModel.transactionTotal(type: .transaction), color: Color.gray, isAdd: false, onShowList: {
-                                transactionsViewModel.pubCurrentListType = .transaction
-                                openListPage()
-                            }, onAdd: {})
-                        }
-                        HStack {
-                            Text("International").font(.system(size: 30, weight: .bold))
-                            Spacer()
-                        }.padding()
-                        VStack {
-                            TransactionTotalView(title: "Transfers", amount: transactionsViewModel.internationalTransactionBaseTotal(), secondAmount: transactionsViewModel.internationalTransactionConversionTotal(), color: Color.DarkBlue, isAdd: true, showFlags: true, onShowList: {
-                                transactionsViewModel.loadInternationalSectionData(data: transactionsViewModel.allIntTransactions)
-                                transactionsViewModel.pubShowIntListView = true
-                            }, onAdd: {
-                                showInternationalCreationView = true
-                            })
-                        }
-                        HStack {
-                            Text("People").font(.system(size: 30, weight: .bold))
-                            Spacer()
-                        }.padding()
-                        if !peopleViewModel.pubIsPeopleLoading {
-                            PeopleListView(isSelectable: false)
-                        }
+//                        inlineFilterView
+                        totalView
+                        internationalView
+                        peopleListView
                         Spacer().frame(height: ScreenSize.safeBottom())
                     }
                 }
-                
-                if showInternationalCreationView{
-                    InternationalTransactionView(isShowView: $showInternationalCreationView).edgesIgnoringSafeArea(.all)
-                }
-                
-                if showCreationView{
-                    CreationView(isShowView: $showCreationView).edgesIgnoringSafeArea(.all)
+                if homeViewModel.pubShowInternationalCreationView{
+                    InternationalTransactionView(isShowView: $homeViewModel.pubShowInternationalCreationView).edgesIgnoringSafeArea(.all)
                 }
                 
                 if transactionsViewModel.pubShowListView{
@@ -113,6 +72,10 @@ struct HomeView: View {
                 
                 if personTransactionsViewModel.pubShowPersonTransactionsList {
                     PersonTransactionsList()
+                }
+                
+                if homeViewModel.pubShowCreationView{
+                    CreationView().edgesIgnoringSafeArea(.all)
                 }
                 
                 if peopleViewModel.pubShowPeopleCreationView {
@@ -153,34 +116,63 @@ struct HomeView: View {
             
         }
         .ignoresSafeArea(edges: .bottom)
-        .onAppear {
-            getAllTransactions()
-            getPeople()
-            getAllInternationalTransactions()
-            currencyPickerModel.getSelectedCurrency()
+    }
+    
+    var inlineFilterView: some View {
+        InlineFilterView(showFilterButton: false)
+            .offset(x: -15)
+    }
+    
+    var totalView: some View {
+        VStack(spacing: 15) {
+            TransactionTotalView(title: "Total Income", amount: transactionsViewModel.transactionTotal(type: .income), color: Color.green, isAdd: true, onShowList: {
+                transactionsViewModel.pubCurrentListType = .income
+                homeViewModel.openListPage()
+            }, onAdd: {
+                creationViewModel.pubCurrentType = .income
+                homeViewModel.pubShowCreationView = true
+            })
+            TransactionTotalView(title: "Total Expense", amount: transactionsViewModel.transactionTotal(type: .expense), color: Color.red, isAdd: true, onShowList: {
+                transactionsViewModel.pubCurrentListType = .expense
+                homeViewModel.openListPage()
+            }, onAdd: {
+                creationViewModel.pubCurrentType = .expense
+                homeViewModel.pubShowCreationView = true
+            })
+            TransactionTotalView(title: "Remaining Balance", amount: transactionsViewModel.transactionTotal(type: .transaction), color: Color.gray, isAdd: false, onShowList: {
+                transactionsViewModel.pubCurrentListType = .transaction
+                homeViewModel.openListPage()
+            }, onAdd: {})
         }
     }
     
-    func openListPage() {
-        transactionsViewModel.pubTransactionsSectionData.removeAll()
-        transactionsViewModel.pubPreviousTransactionDate = nil
-        transactionsViewModel.filterTransactionsData()
-        transactionsViewModel.pubShowListView = true
+    var internationalView: some View {
+        VStack {
+            HStack {
+                Text("International").font(.system(size: 30, weight: .bold))
+                Spacer()
+            }.padding()
+            VStack {
+                TransactionTotalView(title: "Transfers", amount: transactionsViewModel.internationalTransactionBaseTotal(), secondAmount: transactionsViewModel.internationalTransactionConversionTotal(), color: Color.DarkBlue, isAdd: true, showFlags: true, onShowList: {
+                    transactionsViewModel.loadInternationalSectionData(data: transactionsViewModel.allIntTransactions)
+                    transactionsViewModel.pubShowIntListView = true
+                }, onAdd: {
+                    homeViewModel.pubShowInternationalCreationView = true
+                })
+            }
+        }
     }
     
-    func getAllTransactions() {
-        transactionsViewModel.pubIsTransactionsLoading = true
-        transactionsManager.getTransactionsList()
-    }
-    
-    func getAllInternationalTransactions() {
-        transactionsViewModel.pubIsIntTransactionsLoading = true
-        transactionsManager.getInternationalTransactionsList()
-    }
-    
-    func getPeople() {
-        peopleViewModel.pubIsPeopleLoading = true
-        peopleManager.getPeopleList()
+    var peopleListView: some View {
+        VStack {
+            HStack {
+                Text("People").font(.system(size: 30, weight: .bold))
+                Spacer()
+            }.padding()
+            if !peopleViewModel.pubIsPeopleLoading {
+                PeopleListView(isSelectable: false)
+            }
+        }
     }
 }
 

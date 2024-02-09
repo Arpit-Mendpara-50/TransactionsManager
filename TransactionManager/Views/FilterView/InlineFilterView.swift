@@ -10,24 +10,28 @@ import SwiftUI
 struct InlineFilterView: View {
     
     @ObservedObject var viewModel = FilterViewModel.shared
+    @ObservedObject var currencyPickerModel = CurrencyPickerModel.shared
+    var showFilterButton: Bool = true
     
     var body: some View {
         HStack(spacing: 0){
-            Button(action: {
-                viewModel.pubShowFilterView = true
-            }, label: {
-                HStack {
-                    Image("ic_filter")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundStyle(Color.black)
-                }
-                .frame(width: 45, height: 45)
-                .background(Color.white)
-                .clipShape(Circle())
-                .shadow(radius: 5)
-            })
+            if showFilterButton {
+                Button(action: {
+                    viewModel.pubShowFilterView = true
+                }, label: {
+                    HStack {
+                        Image("ic_filter")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.black)
+                    }
+                    .frame(width: 45, height: 45)
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+                })
+            }
             ScrollView(.horizontal){
                 HStack(spacing: 10){
                     if !viewModel.pubSelectedMonth.isEmpty {
@@ -75,21 +79,19 @@ struct InlineFilterView: View {
                         .shadow(radius: 5)
                     }
                     
-                    if let currency = viewModel.pubSelectedCurrency {
-                        HStack {
-                            Image(currency.icon)
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                            Text(currency.name)
-                                .bold()
-                                .foregroundStyle(Color.black)
-                        }
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 10)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(radius: 5)
+                    HStack {
+                        Image(currencyPickerModel.pubSelectedCurrency.icon)
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        Text(currencyPickerModel.pubSelectedCurrency.name)
+                            .bold()
+                            .foregroundStyle(Color.black)
                     }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(radius: 5)
                 }
                 .padding()
             }

@@ -7,17 +7,320 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "214D8455-1568-4FEC-8436-EC6CBD8CF14E"
+            uuid = "607B3534-5FBC-4951-A861-8537CBAD30F1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TransactionManager/Views/FilterView/FilterViewModel.swift"
+            filePath = "TransactionManager/Views/Creation/Transactions/CreationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "getUpperRangeForSlider()"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "convertStringToPeople(peopleString:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "607B3534-5FBC-4951-A861-8537CBAD30F1 - ad5934480ca4549c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.CreationViewModel.convertStringToPeople(peopleString: Swift.String) -&gt; Swift.Array&lt;Swift.Int64&gt;"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/Creation/Transactions/CreationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "607B3534-5FBC-4951-A861-8537CBAD30F1 - ad5934480ca4549c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.CreationViewModel.convertStringToPeople(peopleString: Swift.String) -&gt; Swift.Array&lt;Swift.Int64&gt;"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/Creation/Transactions/CreationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6297EA46-91D2-4142-9684-EDBACEFD9929"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "PeopleViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A4B991A-DECF-4680-99A2-C7AFCF2E6003"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "updatePeople(peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B257B10-BB89-4416-B50D-804BBEFA9851"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "updatePeople(peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F70F2648-2CA3-4127-8EDE-6699BB65574A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "updatePeople(peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A50CFA7-9F4E-426D-A1E2-F7A69B27B87D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "updatePeople(peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "758AA138-587A-457B-8470-43BE0DF012B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/ListView/TransactionList/TransactionsManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "deleteTransaction(idValue:peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "758AA138-587A-457B-8470-43BE0DF012B2 - 5a7e7408320f2e5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.TransactionsManager.deleteTransaction(idValue: Swift.Int64, peopleIncluded: Swift.String, amountValue: Swift.String, transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/ListView/TransactionList/TransactionsManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "758AA138-587A-457B-8470-43BE0DF012B2 - 5736b4b76b722c89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.String) -&gt; () in TransactionManager.TransactionsManager.deleteTransaction(idValue: Swift.Int64, peopleIncluded: Swift.String, amountValue: Swift.String, transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/ListView/TransactionList/TransactionsManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48EB028D-5738-4BBC-83C4-65A25DFFE7C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/ListView/TransactionList/TransactionsManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "deleteTransaction(idValue:peopleIncluded:amountValue:transactionCurrencyType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D53ECD6C-09E4-4E48-87AA-FE277C4AC7C7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/ListView/TransactionList/TransactionRowView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F0E6D47-54A0-4AFF-A4E9-E1D9557F3F20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "updatePeopleData(transactionCurrencyType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F0E6D47-54A0-4AFF-A4E9-E1D9557F3F20 - 64077ab3a2822eb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.PeopleViewModel.updatePeopleData(transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "1932">
+               </Location>
+               <Location
+                  uuid = "2F0E6D47-54A0-4AFF-A4E9-E1D9557F3F20 - 64077ab3a2822eb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.PeopleViewModel.updatePeopleData(transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "1628">
+               </Location>
+               <Location
+                  uuid = "2F0E6D47-54A0-4AFF-A4E9-E1D9557F3F20 - 64077ab3a2822eb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.PeopleViewModel.updatePeopleData(transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "1756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E55AD8CE-E864-4713-9C07-8A7FE7985441"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "updatePeopleData(transactionCurrencyType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E55AD8CE-E864-4713-9C07-8A7FE7985441 - 64077ab3a2822368"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.PeopleViewModel.updatePeopleData(transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "E55AD8CE-E864-4713-9C07-8A7FE7985441 - 64077ab3a2822368"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TransactionManager.PeopleViewModel.updatePeopleData(transactionCurrencyType: Swift.Int) -&gt; ()"
+                  moduleName = "TransactionManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arpit.mendpara/Custom%20Projects/TransactionManager/TransactionManager/Views/PeopleView/PeopleViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "440">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
