@@ -9,8 +9,6 @@ import SwiftUI
 
 struct IntTransactionsListView: View {
 
-//    @Binding var isShowView: Bool
-    
     @ObservedObject var creationManager = CreationManager.shared
     @ObservedObject var viewModel = TransactionsViewModel.shared
     

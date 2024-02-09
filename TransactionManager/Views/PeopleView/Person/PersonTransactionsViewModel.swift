@@ -30,11 +30,6 @@ class PersonTransactionsViewModel : ObservableObject {
     func openPeronTransactionListView(person: PeopleModel) {
         self.pubSelectedPerson = person
         self.filterPersonData()
-//        transactionsViewModel.pubCurrentListType = .transaction
-//        transactionsViewModel.pubTransactionsSectionData.removeAll()
-//        transactionsManager.loadSectionData(data: self.pubPersonTransactions)
-//        self.pubShowPersonTransactionsList = true
-//        pubIsLoading = false
     }
     
     func filterPersonData() {
@@ -42,8 +37,6 @@ class PersonTransactionsViewModel : ObservableObject {
         if !allData.isEmpty, let person = pubSelectedPerson {
             let id = String(person.id)
             let transactionsData = allData.filter({$0.peopleIncluded.contains(id)})
-//            print(filteredData.map({$0.createdDate}))
-//            self.pubPersonTransactions = filteredData
             let monthAndYear = "\(filterViewModel.pubSelectedMonth) \(filterViewModel.pubSelectedYear)"
             let filteredData = filterViewModel.applyFilter(data: transactionsData, filterMonthAndYear: monthAndYear, selectedCategory: filterViewModel.pubSelectedCategory, amountRange: filterViewModel.pubSelectedRange, currency: currencyPickerModel.pubSelectedCurrency)
             self.pubPersonTransactions = filteredData

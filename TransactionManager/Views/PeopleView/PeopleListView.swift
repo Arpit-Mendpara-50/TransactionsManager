@@ -30,7 +30,6 @@ struct PeopleListView: View {
                                 } else {
                                     creationViewModel.pubSelectedPeopleID.append(id)
                                 }
-                                print("people ID: \(CreationViewModel.shared.pubSelectedPeopleID)")
                             }
                         })
                     }

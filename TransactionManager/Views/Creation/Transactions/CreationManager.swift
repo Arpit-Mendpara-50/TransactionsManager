@@ -32,7 +32,6 @@ class CreationManager: ObservableObject {
                 try db.run(transactions.insert(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
                 DispatchQueue.main.async {
                     completionHandler("Success", "\(messagePrefix) is added successfully")
-//                    PeopleViewModel.shared.updatePeople(peopleIncluded: peopleIncluded, amountValue: amountValue, transactionCurrencyType: currencyTypeValue)
                     PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: currencyTypeValue)
                 }
             }catch{

@@ -148,7 +148,6 @@ class TransactionsViewModel : ObservableObject {
         let allTransactions = self.allIntTransactions
         let allBaseAmount = allTransactions.compactMap({Double($0.baseAmount)})
         let totalBaseAmount = allBaseAmount.reduce(0, +)
-//        returnTotalBaseAmount = "\(helper.currencyCode)" + String(format: "%.2f", totalBaseAmount)
         returnTotalBaseAmount = String(format: "%.2f", totalBaseAmount)
         return returnTotalBaseAmount
     }
@@ -158,7 +157,6 @@ class TransactionsViewModel : ObservableObject {
         let allTransactions = self.allIntTransactions
         let allConvertedAmount = allTransactions.compactMap({(Double($0.baseAmount) ?? 0.0) * (Double($0.conversionAmount) ?? 0.0)})
         let totalConvertedAmount = allConvertedAmount.reduce(0, +)
-//        returnTotalConvertedAmount = "₹" + String(format: "%.2f", totalConvertedAmount)
         returnTotalConvertedAmount = String(format: "%.2f", totalConvertedAmount)
         return returnTotalConvertedAmount
     }

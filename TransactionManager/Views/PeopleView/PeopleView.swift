@@ -20,14 +20,6 @@ struct PeopleView: View {
     var body: some View {
         Button(action: {
             onTap?()
-//            if isSelectable {
-//                if creationViewModel.pubSelectedPeopleID.contains(id) {
-//                    creationViewModel.pubSelectedPeopleID = creationViewModel.pubSelectedPeopleID.filter({$0 != id})
-//                } else {
-//                    creationViewModel.pubSelectedPeopleID.append(id)
-//                }
-//                print("people ID: \(CreationViewModel.shared.pubSelectedPeopleID)")
-//            }
         }, label: {
             VStack{
                 if isAdd {

@@ -77,14 +77,6 @@ struct CurrencyPickerView: View {
                 HStack(spacing: 10){
                     ForEach(0..<viewModel.currencies.count, id: \.self) { index in
                         Button(action: {
-//                            if showSelectedView {
-//                                viewModel.pubSelectedCurrency = viewModel.currencies[index]
-//                                UserDefaults.standard.setValue(viewModel.pubSelectedCurrency.id, forKey: "SelectedCurrency")
-//                                UserDefaults.standard.synchronize()
-//                            } else {
-//                                viewModel.pubSelectedCurrencyForTransaction = viewModel.currencies[index]
-//                                onSelect?()
-//                            }
                             onSelect?(viewModel.currencies[index])
                         }, label: {
                             CurrencyView(currency: viewModel.currencies[index], isSelectable: showSelectedView, selectedCurrency: selectedCurrency)

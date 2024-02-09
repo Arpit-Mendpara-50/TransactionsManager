@@ -24,7 +24,6 @@ struct FilterView: View {
     @State var selectedCategory: CategoryModel?
     @State var selectedMonth: String = ""
     @State var selectedYear: String = ""
-//    @State var selectedCurrency: Currency?
     @State var selectedRange: Double = 0.0
     
     var body: some View {
@@ -34,7 +33,6 @@ struct FilterView: View {
                 VStack(spacing: 0){
                     monthYearPickerView
                     sliderView
-//                    currencyView
                     Group {
                         categoryView
                         if showCategoryList {
@@ -57,7 +55,6 @@ struct FilterView: View {
                     withAnimation(.smooth, {
                         selectedRange = viewModel.pubSelectedRange
                         selectedCategory = viewModel.pubSelectedCategory
-//                        selectedCurrency = viewModel.pubSelectedCurrency
                     })
                     
                 })
@@ -283,27 +280,12 @@ struct FilterView: View {
         }
     }
     
-//    var currencyView: some View {
-//        VStack(spacing: 0){
-//            HStack {
-//                Text("Select Currency")
-//                    .font(.system(size: 20, weight: .bold))
-//                Spacer()
-//            }
-//            .padding(.top, 20)
-//            CurrencyPickerView(showSelectedView: true, selectedCurrency: selectedCurrency ?? currencyPickerModel.pubSelectedCurrency) { currency in
-//                selectedCurrency = currency
-//            }
-//        }
-//    }
-    
     var saveButton: some View {
         Button(action: {
             viewModel.pubSelectedCategory = selectedCategory
             viewModel.pubSelectedMonth = selectedMonth
             viewModel.pubSelectedYear = selectedYear
             viewModel.pubSelectedRange = selectedRange
-//            viewModel.pubSelectedCurrency = selectedCurrency
             if transactionsViewModel.pubShowListView {
                 transactionsViewModel.filterTransactionsData()
             }

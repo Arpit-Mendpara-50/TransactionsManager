@@ -20,30 +20,30 @@ class TransactionsManager: ObservableObject {
     }()
     
     /*public func applyFilter(transactionsArray: [TransactionsModel]) {
-        var returnData = transactionsArray
-        let monthAndYear = "\(filterViewModel.pubSelectedMonth) \(filterViewModel.pubSelectedYear)"
-        let currency = currencyPickerModel.pubSelectedCurrency.id
-        returnData = transactionsArray.filter({$0.currencyType == currency})
-        if !monthAndYear.isEmpty {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-            
-            let filterDateFormatter = DateFormatter()
-            filterDateFormatter.dateFormat = "MMMM yyyy"
-            
-            let filterMonthAndYearData = returnData.filter { item in
-                if let date = dateFormatter.date(from: item.createdDate),
-                   filterDateFormatter.string(from: date) == monthAndYear {
-                    return true
-                }
-                return false
-            }
-            returnData = filterMonthAndYearData
-        }
-        
-        viewModel.allTransactions = returnData
-        viewModel.pubIsTransactionsLoading = false
-    }*/
+     var returnData = transactionsArray
+     let monthAndYear = "\(filterViewModel.pubSelectedMonth) \(filterViewModel.pubSelectedYear)"
+     let currency = currencyPickerModel.pubSelectedCurrency.id
+     returnData = transactionsArray.filter({$0.currencyType == currency})
+     if !monthAndYear.isEmpty {
+     let dateFormatter = DateFormatter()
+     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+     
+     let filterDateFormatter = DateFormatter()
+     filterDateFormatter.dateFormat = "MMMM yyyy"
+     
+     let filterMonthAndYearData = returnData.filter { item in
+     if let date = dateFormatter.date(from: item.createdDate),
+     filterDateFormatter.string(from: date) == monthAndYear {
+     return true
+     }
+     return false
+     }
+     returnData = filterMonthAndYearData
+     }
+     
+     viewModel.allTransactions = returnData
+     viewModel.pubIsTransactionsLoading = false
+     }*/
     
     public func applyFilter(transactionsArray: [TransactionsModel]) {
         let currency = currencyPickerModel.pubSelectedCurrency.id
@@ -117,9 +117,8 @@ class TransactionsManager: ObservableObject {
             PeopleManager.shared.getPeopleList()
             let people = viewModel.getPeopleIncluded(people: peopleIncluded)
             let peopleId = people.map({$0.id})
-//            PeopleViewModel.shared.updatePeople(peopleIncluded: peopleId, amountValue: amountValue, transactionCurrencyType: transactionCurrencyType)
             PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: transactionCurrencyType)
         })
     }
-
+    
 }

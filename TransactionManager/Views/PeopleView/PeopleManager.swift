@@ -93,28 +93,4 @@ class PeopleManager: ObservableObject {
         return String(format: "%.2f", returnAmount)
     }
     
-//    public func getPersonById(id: Int64) -> PeopleModel? {
-//        let people = viewModel.pubPeopleData
-//        for item in people {
-//            if item.id == id {
-//                return item
-//            }
-//        }
-//        return nil
-//    }
-    
-//    public func getPersonAmount(id: Int64) -> String {
-//        var returnAmount = 0.0
-//        let transactions = TransactionsViewModel.shared.pubTransactionsData
-//        for item in transactions {
-//            let people = TransactionsManager.shared.getPeopleIncluded(people: item.peopleIncluded)
-//            if !people.isEmpty {
-//                if people.contains(where: {$0.id == id}) {
-//                    returnAmount += Double(item.amount) ?? 0.0
-//                }
-//            }
-//        }
-//        return "$" + String(format: "%.2f", returnAmount)
-//    }
-    
 }

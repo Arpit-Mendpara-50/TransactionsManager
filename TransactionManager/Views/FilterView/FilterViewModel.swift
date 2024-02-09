@@ -14,7 +14,6 @@ class FilterViewModel : ObservableObject {
         let model = FilterViewModel(
         )
         let (month, year) = model.currentMonthAndYear()
-//        model.getPreSelectedCurrency()
         model.pubSelectedMonth = month
         model.pubSelectedYear = year
         return model
@@ -25,7 +24,6 @@ class FilterViewModel : ObservableObject {
     @Published var pubSelectedYear: String = ""
     @Published var pubSelectedCategory: CategoryModel?
     @Published var pubSelectedRange: Double = 0.0
-//    @Published var pubSelectedCurrency: Currency?
     @Published var pubLastUpdated = Date().timeIntervalSince1970
     
     
@@ -100,11 +98,4 @@ class FilterViewModel : ObservableObject {
         }
         return false
     }
-    
-//    func getPreSelectedCurrency() {
-//        guard let currency = currencyPickerModel.pubSelectedCurrency else{
-//            pubSelectedCurrency = CurrencyPickerModel.shared.pubSelectedCurrency
-//            return
-//        }
-//    }
 }

@@ -16,7 +16,6 @@ class ImagePickerManager: ObservableObject {
     }()
     @Published var selectedImage: UIImage?
     @Published var selectedImageName: String?
-//    @Published var selectedImagePath: URL?
     @Published var isImagePickerPresented: Bool = false
     
     func loadImage() {
@@ -26,7 +25,6 @@ class ImagePickerManager: ObservableObject {
     func saveImageToDocumentsDirectory(image: UIImage) {
         if let data = image.jpegData(compressionQuality: 1.0) {
             let filename = getDocumentsDirectory().appendingPathComponent(self.selectedImageName ?? "savedImage.jpg")
-//            self.selectedImagePath = filename
             try? data.write(to: filename)
         }
     }

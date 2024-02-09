@@ -36,9 +36,6 @@ struct ContentView: View {
                     .transition(.move(edge: .bottom))
             }
         }
-        .onAppear(perform: {
-//            self.categoryData = DatabaseManager().getCategories()
-        })
     }
 }
 

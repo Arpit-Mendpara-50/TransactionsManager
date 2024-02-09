@@ -18,7 +18,6 @@ class DatabaseManager: ObservableObject {
         return mgr
     }()
     
-//    private var db: Connection!
     public var db: Connection?
     
     //MARK: Transactions table

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    //    @State var showListView = false
-    //    @State var showIntListView = false
     @ObservedObject var homeViewModel = HomeViewModel.shared
     @ObservedObject var creationManager = CreationManager.shared
     @ObservedObject var creationViewModel = CreationViewModel.shared

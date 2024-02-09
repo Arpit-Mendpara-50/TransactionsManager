@@ -50,9 +50,6 @@ struct DatePickerView: View {
                             .datePickerStyle(.graphical)
                             .labelsHidden()
                             .padding()
-//                            .onChange(of: selectedDate) { date in
-//                                closeAction?(date)
-//                            }
                         Spacer()
                     }
                     .background(Color.PrimaryColor)

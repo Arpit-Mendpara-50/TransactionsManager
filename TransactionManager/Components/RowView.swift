@@ -59,7 +59,6 @@ struct RowView: View {
             Button(action: {
                 withAnimation {
                     onShowList?()
-                    //                    isRowOpen.toggle()
                 }
             }, label: {
                 HStack(spacing: 10){
@@ -81,7 +80,6 @@ struct RowView: View {
             })
             Button(action: {
                 withAnimation {
-                    //                    isRowOpen.toggle()
                     onAdd?()
                 }
             }, label: {
