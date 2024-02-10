@@ -27,9 +27,7 @@ class TransactionsViewModel : ObservableObject {
     @Published var pubCurrentListType: CreationType = .income
     
     @Published var allTransactions: [TransactionsModel] = []
-    @Published var filterdData: [TransactionsModel] = []
-    @Published var incomeTransactions: [TransactionsModel] = []
-    @Published var expenseTransactions: [TransactionsModel] = []
+    @Published var unFilterdData: [TransactionsModel] = []
     
     @Published var pubIsIntTransactionsLoading: Bool = true
     @Published var allIntTransactions: [InternationalTransactionsModel] = []

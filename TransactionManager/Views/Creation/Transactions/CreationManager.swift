@@ -31,7 +31,7 @@ class CreationManager: ObservableObject {
                 try db.run(transactions.insert(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
                 DispatchQueue.main.async {
                     completionHandler("Success", "\(messagePrefix) is added successfully")
-                    PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: currencyTypeValue)
+                    PeopleViewModel.shared.updatePeopleData()
                 }
             }catch{
                 completionHandler("Failed", "Failed to add \(messagePrefix)")
@@ -49,7 +49,7 @@ class CreationManager: ObservableObject {
                 try db.run(transaction.update(databaseManager.transactionTitle <- titleValue, databaseManager.transactionAmount <- amountValue, databaseManager.transactionCategory <- categoryValue, databaseManager.transactionDescription <- descriptionValue, databaseManager.transactionType <- transactionTypeValue, databaseManager.peopleIncluded <- peopleIncludedString, databaseManager.transactionCurrencyType <- currencyTypeValue,  databaseManager.transactionCreatedDate <- createdDateValue, databaseManager.transactionUpdatedDate <- updatedDateValue))
                 DispatchQueue.main.async {
                     completionHandler("Success", "\(messagePrefix) is updated successfully")
-                    PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: currencyTypeValue)
+                    PeopleViewModel.shared.updatePeopleData()
                 }
             }catch{
                 completionHandler("Failed", "Failed to update \(messagePrefix)")

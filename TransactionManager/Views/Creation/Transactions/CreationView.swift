@@ -71,7 +71,7 @@ struct CreationView: View {
             }
         }
             .edgesIgnoringSafeArea(.all)
-            .background(Color.white)
+            .background(Color.BackgroundColor)
             .onAppear(perform: {
                 var data = categoryManager.getCategories()
                 let (filter1, filter2) = viewModel.getTypeValue()
@@ -85,11 +85,12 @@ struct CreationView: View {
             HStack{
                 Text("\(viewModel.getTitle()) Title")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             TextField("Title", text: $viewModel.pubTitleString)
                 .padding(10)
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             Spacer().frame(height: 30)
@@ -102,6 +103,7 @@ struct CreationView: View {
             HStack{
                 Text("\(viewModel.getTitle()) Amount")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             HStack {
@@ -115,11 +117,11 @@ struct CreationView: View {
                                 .frame(width: 15, height: 15)
                             Text(currencyPickerModel.pubSelectedCurrencyForTransaction.name)
                                 .font(.system(size: 10, weight: .semibold))
-                                .foregroundStyle(Color.black)
+                                .foregroundStyle(Color.TextColor)
                             
                         }
                         .frame(width: 40, height: 40)
-                        .background(Color.white)
+                        .background(Color.SwitchBackgroundColor)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .shadow(radius: 2)
                     }
@@ -127,7 +129,7 @@ struct CreationView: View {
                 })
                 TextField("Amount", text: $viewModel.pubAmountString)
                     .padding(10)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(radius: 2)
             }
@@ -136,7 +138,7 @@ struct CreationView: View {
                     currencyPickerModel.pubSelectedCurrencyForTransaction = currency
                     showCurrencyPicker.toggle()
                 }
-                .padding(.top, 10)
+                .padding(.vertical, 5)
                 Text("Your chosen primary currency is \(currencyPickerModel.pubSelectedCurrency.name). If you switch your current transaction currency, it won't appear in the list of current transactions. To view such transactions, please go to settings and update the currency type.")
                     .font(.system(size: 12, weight: .bold))
                     .foregroundStyle(Color.red)
@@ -151,11 +153,12 @@ struct CreationView: View {
             HStack{
                 Text("\(viewModel.getTitle()) Description")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             TextField("Description", text: $viewModel.pubDescriptionString)
                 .padding(10)
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             Spacer().frame(height: 30)
@@ -168,6 +171,7 @@ struct CreationView: View {
             HStack{
                 Text("\(viewModel.getTitle()) Date")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             HStack{
@@ -178,12 +182,12 @@ struct CreationView: View {
                 }, label: {
                     HStack{
                         Text(viewModel.pubSelectedDate.toStringDate()).padding(.horizontal, 10)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.TextColor)
                         Spacer()
                     }
                     .frame(height: 45)
                 })
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             }
@@ -222,13 +226,14 @@ struct CreationView: View {
                     }else{
                         HStack{
                             Text("Category").opacity(0.5).padding(.horizontal, 10)
+                                .foregroundStyle(Color.gray)
                             Spacer()
                         }
-                        .foregroundColor(Color.gray)
+                        
                         .frame(height: 45)
                     }
                 })
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
                 Spacer()
@@ -273,7 +278,7 @@ struct CreationView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.DarkBlue.opacity(0.7))
+        .background(Color.DarkBlue)
         .shadow(radius: 5)
         
     }
@@ -374,7 +379,7 @@ struct CreationView: View {
                 Spacer()
             }
             .frame(height: 50, alignment: .center)
-            .background(Color.DarkBlue.opacity(0.7))
+            .background(Color.DarkBlue)
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .shadow(radius: 2)
         })

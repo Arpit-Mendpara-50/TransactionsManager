@@ -59,29 +59,27 @@ struct CategoryPickerView: View {
                 }
                 .frame(width: ScreenSize.width())
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .background(Color.PrimaryColor)
+                .background(Color.BackgroundColor)
                 .shadow(radius: 3)
                 .zIndex(2)
                 
             }
-            VStack{
-                Spacer()
-                Button("Select", action: {
-                    
-                })
-                .padding(.all)
-                .frame(width: ScreenSize.width() - 60, height: 50)
-                .foregroundColor(Color.white)
-                .background(Color.red)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-                .shadow(radius: 5)
-            }.zIndex(3)
+//            VStack{
+//                Spacer()
+//                Button("Select", action: {
+//                    
+//                })
+//                .padding(.all)
+//                .frame(width: ScreenSize.width() - 60, height: 50)
+//                .foregroundColor(Color.white)
+//                .background(Color.red)
+//                .clipShape(RoundedRectangle(cornerRadius: 25))
+//                .shadow(radius: 5)
+//            }.zIndex(3)
         }
         .frame(width: ScreenSize.width())
-        .background(Color.white)
+        .background(Color.PrimaryColor)
     }
-    
-    
 }
 
 struct CategoryView: View{

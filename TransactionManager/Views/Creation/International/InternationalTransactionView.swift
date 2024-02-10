@@ -51,7 +51,7 @@ struct InternationalTransactionView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .background(Color.white)
+        .background(Color.BackgroundColor)
     }
     
     var header: some View {
@@ -67,16 +67,16 @@ struct InternationalTransactionView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(radius: 2)
                 Spacer()
-//                if !viewModel.pubTitleString.isEmpty || !viewModel.pubAmountString.isEmpty || viewModel.pubSelectedCategory != nil || !viewModel.pubDescriptionString.isEmpty || viewModel.pubSelectedDate.toStringDate() != Date().toStringDate(){
-//                    clearButton
-//                }else{
-//                    Spacer().frame(width: 35)
-//                }
+                if !viewModel.pubTitleString.isEmpty || !viewModel.pubBaseAmountString.isEmpty || !viewModel.pubConversionAmountString.isEmpty || !viewModel.pubDescriptionString.isEmpty || viewModel.pubSelectedDate.toStringDate() != Date().toStringDate(){
+                    clearButton
+                }else{
+                    Spacer().frame(width: 35)
+                }
             }
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(Color.DarkBlue)
         .shadow(radius: 5)
         
     }
@@ -121,11 +121,12 @@ struct InternationalTransactionView: View {
             HStack{
                 Text("Transaction Title")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             TextField("Title", text: $viewModel.pubTitleString)
                 .padding(10)
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             Spacer().frame(height: 30)
@@ -138,6 +139,7 @@ struct InternationalTransactionView: View {
             HStack{
                 Text("Base Amount")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             HStack {
@@ -151,11 +153,10 @@ struct InternationalTransactionView: View {
                                 .frame(width: 15, height: 15)
                             Text(viewModel.pubSelectedBaseCurrency.name)
                                 .font(.system(size: 10, weight: .semibold))
-                                .foregroundStyle(Color.black)
-                            
+                                .foregroundStyle(Color.TextColor)
                         }
                         .frame(width: 40, height: 40)
-                        .background(Color.white)
+                        .background(Color.SwitchBackgroundColor)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .shadow(radius: 2)
                     }
@@ -163,7 +164,7 @@ struct InternationalTransactionView: View {
                 })
                 TextField("Amount", text: $viewModel.pubBaseAmountString)
                     .padding(10)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(radius: 2)
             }
@@ -187,6 +188,7 @@ struct InternationalTransactionView: View {
             HStack{
                 Text("Conversion Amount")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             HStack {
@@ -200,11 +202,11 @@ struct InternationalTransactionView: View {
                                 .frame(width: 15, height: 15)
                             Text(viewModel.pubSelectedConversionCurrency.name)
                                 .font(.system(size: 10, weight: .semibold))
-                                .foregroundStyle(Color.black)
+                                .foregroundStyle(Color.TextColor)
                             
                         }
                         .frame(width: 40, height: 40)
-                        .background(Color.white)
+                        .background(Color.SwitchBackgroundColor)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .shadow(radius: 2)
                     }
@@ -212,7 +214,7 @@ struct InternationalTransactionView: View {
                 })
                 TextField("Amount", text: $viewModel.pubConversionAmountString)
                     .padding(10)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(radius: 2)
             }
@@ -236,11 +238,12 @@ struct InternationalTransactionView: View {
             HStack{
                 Text("Transaction Description")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             TextField("Description", text: $viewModel.pubDescriptionString)
                 .padding(10)
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             Spacer().frame(height: 30)
@@ -253,6 +256,7 @@ struct InternationalTransactionView: View {
             HStack{
                 Text("Transaction Date")
                     .bold()
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             HStack{
@@ -263,12 +267,12 @@ struct InternationalTransactionView: View {
                 }, label: {
                     HStack{
                         Text(viewModel.pubSelectedDate.toStringDate()).padding(.horizontal, 10)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.TextColor)
                         Spacer()
                     }
                     .frame(height: 45)
                 })
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 2)
             }
@@ -308,7 +312,7 @@ struct InternationalTransactionView: View {
                 Spacer()
             }
             .frame(height: 50, alignment: .center)
-            .background(Color.DarkBlue.opacity(0.7))
+            .background(Color.DarkBlue)
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .shadow(radius: 2)
         })

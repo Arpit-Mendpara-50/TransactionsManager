@@ -16,11 +16,12 @@ struct TransactionSectionView: View {
             HStack{
                 Text(dateText).bold().padding(.leading, 10)
                 Line(padding: 30)
-            }.padding(.bottom)
+            }.padding(.bottom, 10)
             ForEach(transactionData){ item in
                 TransactionRowView(transactionData: item)
             }
         }
+        .padding(.bottom)
     }
 }
 
@@ -53,7 +54,7 @@ struct TransactionRowView: View {
                             VStack(alignment: .leading){
                                 Text(transactionData.title).textCase(.uppercase)
                                     .font(.system(size: 18, weight: .bold))
-                                    .foregroundStyle(Color.black)
+                                    .foregroundStyle(Color.TextColor)
                                 Text(transactionData.description)
                                     .foregroundColor(Color.gray)
                                     .multilineTextAlignment(.leading)
@@ -71,7 +72,7 @@ struct TransactionRowView: View {
                                             .frame(width: 20, height: 20)
                                         Text("\(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).code)"+transactionsViewModel.getDividedAmount(amount: transactionData.amount, peopleIncluded: transactionData.peopleIncluded))
                                             .font(.system(size: 17, weight: .bold))
-                                            .foregroundStyle(Color.black)
+                                            .foregroundStyle(Color.TextColor)
                                     }
                                 }
                             } else {
@@ -82,7 +83,7 @@ struct TransactionRowView: View {
                                             .frame(width: 20, height: 20)
                                         Text("\(currencyPickerModel.getCurrencyById(id: transactionData.currencyType).code)"+transactionData.amount)
                                             .font(.system(size: 17, weight: .bold))
-                                            .foregroundStyle(Color.black)
+                                            .foregroundStyle(Color.TextColor)
                                     }
                                     if showToolBar {
                                         HStack {
@@ -101,7 +102,7 @@ struct TransactionRowView: View {
                                                 }
                                                 .padding(10)
                                                 .frame(width: 50)
-                                                .background(Color.DarkBlue.opacity(0.7))
+                                                .background(Color.DarkBlue)
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 .shadow(radius: 5)
                                             })
@@ -119,12 +120,12 @@ struct TransactionRowView: View {
                                                 }
                                                 .padding(10)
                                                 .frame(width: 50)
-                                                .background(Color.red.opacity(0.7))
+                                                .background(Color.red)
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 .shadow(radius: 5)
                                             })
                                         }
-                                        .padding(.leading, 10)
+                                        .padding(.horizontal, 10)
                                         .frame(width: 100)
                                     }
                                 }
@@ -136,7 +137,7 @@ struct TransactionRowView: View {
                                     .font(.system(size: 10))
                                     .lineLimit(2)
                                     .frame(width: 60)
-                                    .foregroundStyle(Color.black)
+                                    .foregroundStyle(Color.TextColor)
                                     .multilineTextAlignment(.leading)
                                     .frame(minHeight: 40)
                                 Spacer().frame(width: 5)
@@ -178,7 +179,7 @@ struct TransactionRowView: View {
                                 Spacer()
                             }
                             .padding(10)
-                            .background(Color.DarkBlue.opacity(0.7))
+                            .background(Color.DarkBlue)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
                         })
@@ -197,7 +198,7 @@ struct TransactionRowView: View {
                                 Spacer()
                             }
                             .padding(10)
-                            .background(Color.red.opacity(0.7))
+                            .background(Color.red)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
                         })
@@ -206,8 +207,12 @@ struct TransactionRowView: View {
                     .padding(.top, 10)
                 }
             }
-            Line(padding: 0).padding(.vertical, 5)
         }
+        .padding(10)
+        .background(Color.SwitchBackgroundColor)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal)
+        .padding(.vertical, 5)
+        .shadow(radius: 5)
     }
 }

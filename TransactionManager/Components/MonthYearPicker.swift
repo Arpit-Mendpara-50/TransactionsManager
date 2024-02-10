@@ -41,11 +41,11 @@ struct MonthYearPicker: View {
                             .font(.system(size: 20, weight: .semibold))
                         Image(systemName: "chevron.up.chevron.down")
                             .bold()
-                    }.foregroundStyle(Color.black)
+                    }.foregroundStyle(Color.TextColor)
                 }
             }
             .padding(10)
-            .background(Color.white)
+            .background(Color.SwitchBackgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(radius: 5)
             HStack {
@@ -62,11 +62,11 @@ struct MonthYearPicker: View {
                             .font(.system(size: 20, weight: .semibold))
                         Image(systemName: "chevron.up.chevron.down")
                             .bold()
-                    }.foregroundStyle(Color.black)
+                    }.foregroundStyle(Color.TextColor)
                 }
             }
             .padding(10)
-            .background(Color.white)
+            .background(Color.SwitchBackgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(radius: 5)
             Spacer()

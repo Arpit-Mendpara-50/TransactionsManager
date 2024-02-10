@@ -16,7 +16,7 @@ struct CurrencyView: View {
         VStack {
             ZStack {
                 VStack(spacing: 5){
-                    if isSelectable {
+                    if isSelectable && selectedCurrency == currency {
                         Spacer().frame(height: 10)
                     }
                     Image(currency.icon)
@@ -26,7 +26,7 @@ struct CurrencyView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                     Text(currency.name)
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundColor(Color.TextColor)
                 }
                 if isSelectable && selectedCurrency == currency{
                     VStack {
@@ -52,7 +52,7 @@ struct CurrencyView: View {
             }
         }
         .frame(width: 70, height: 80)
-        .background(Color.white)
+        .background(Color.SwitchBackgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(radius: 5)
     }
@@ -77,7 +77,9 @@ struct CurrencyPickerView: View {
                 HStack(spacing: 10){
                     ForEach(0..<viewModel.currencies.count, id: \.self) { index in
                         Button(action: {
-                            onSelect?(viewModel.currencies[index])
+                            withAnimation {
+                                onSelect?(viewModel.currencies[index])
+                            }
                         }, label: {
                             CurrencyView(currency: viewModel.currencies[index], isSelectable: showSelectedView, selectedCurrency: selectedCurrency)
                                 .padding(.vertical)
@@ -88,7 +90,7 @@ struct CurrencyPickerView: View {
             }
         }
         .frame(height: 90)
-        .background(Color.white)
+        .background(Color.BackgroundColor)
     }
 }
 

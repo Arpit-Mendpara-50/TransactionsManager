@@ -78,7 +78,7 @@ class CreationViewModel : ObservableObject {
                 return "Please select at least one person for \(getTitle())"
             }
         }
-        guard let doubleAmount = Double(pubAmountString) else {
+        guard Double(pubAmountString) != nil else {
             return "Please enter valid amount for \(getTitle())"
         }
         return ""

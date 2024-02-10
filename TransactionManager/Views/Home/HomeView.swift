@@ -114,6 +114,7 @@ struct HomeView: View {
             
         }
         .ignoresSafeArea(edges: .bottom)
+        .background(Color.BackgroundColor)
     }
     
     var inlineFilterView: some View {
@@ -123,7 +124,7 @@ struct HomeView: View {
     
     var totalView: some View {
         VStack(spacing: 15) {
-            TransactionTotalView(title: "Total Income", amount: transactionsViewModel.transactionTotal(type: .income), color: Color.green, isAdd: true, onShowList: {
+            TransactionTotalView(title: "Total Income", amount: transactionsViewModel.transactionTotal(type: .income), isAdd: true, onShowList: {
                 transactionsViewModel.pubCurrentListType = .income
                 homeViewModel.openListPage()
             }, onAdd: {
@@ -131,7 +132,7 @@ struct HomeView: View {
                 creationViewModel.pubCurrentType = .income
                 homeViewModel.pubShowCreationView = true
             })
-            TransactionTotalView(title: "Total Expense", amount: transactionsViewModel.transactionTotal(type: .expense), color: Color.red, isAdd: true, onShowList: {
+            TransactionTotalView(title: "Total Expense", amount: transactionsViewModel.transactionTotal(type: .expense), isAdd: true, onShowList: {
                 transactionsViewModel.pubCurrentListType = .expense
                 homeViewModel.openListPage()
             }, onAdd: {
@@ -139,7 +140,7 @@ struct HomeView: View {
                 creationViewModel.pubCurrentType = .expense
                 homeViewModel.pubShowCreationView = true
             })
-            TransactionTotalView(title: "Remaining Balance", amount: transactionsViewModel.transactionTotal(type: .transaction), color: Color.gray, isAdd: false, onShowList: {
+            TransactionTotalView(title: "Remaining Balance", amount: transactionsViewModel.transactionTotal(type: .transaction), isAdd: false, onShowList: {
                 transactionsViewModel.pubCurrentListType = .transaction
                 homeViewModel.openListPage()
             }, onAdd: {})
@@ -153,7 +154,7 @@ struct HomeView: View {
                 Spacer()
             }.padding()
             VStack {
-                TransactionTotalView(title: "Transfers", amount: transactionsViewModel.internationalTransactionBaseTotal(), secondAmount: transactionsViewModel.internationalTransactionConversionTotal(), color: Color.DarkBlue, isAdd: true, showFlags: true, onShowList: {
+                TransactionTotalView(title: "Transfers", amount: transactionsViewModel.internationalTransactionBaseTotal(), secondAmount: transactionsViewModel.internationalTransactionConversionTotal(), isAdd: true, showFlags: true, onShowList: {
                     transactionsViewModel.loadInternationalSectionData(data: transactionsViewModel.allIntTransactions)
                     transactionsViewModel.pubShowIntListView = true
                 }, onAdd: {

@@ -12,7 +12,6 @@ struct TransactionTotalView: View {
     var title: String
     var amount: String
     var secondAmount: String = ""
-    var color: Color
     var isAdd: Bool
     var showFlags: Bool = false
     var onShowList: (()->Void)?
@@ -30,7 +29,7 @@ struct TransactionTotalView: View {
                     Spacer()
                 }
                 .frame(height: 40)
-                .background(color.opacity(0.7))
+                .background(Color.DarkBlue)
                 HStack(spacing: 5){
                     Spacer().frame(width: 20)
                     if showFlags && !baseFlags.isEmpty {
@@ -40,12 +39,12 @@ struct TransactionTotalView: View {
                     Text(amount)
                         .bold()
                         .font(.system(size: 20))
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.TextColor)
                         .offset(x: (showFlags && !baseFlags.isEmpty) ? -CGFloat(((baseFlags.count-1)*15)) : 0)
                     Spacer()
                 }
                 .frame(height: !secondAmount.isEmpty ? 40 : 50)
-                .background(Color.white)
+                .background(Color.SwitchBackgroundColor)
                 if !secondAmount.isEmpty {
                     Line(padding: 0)
                     HStack(spacing: 5){
@@ -57,12 +56,12 @@ struct TransactionTotalView: View {
                         Text(secondAmount)
                             .bold()
                             .font(.system(size: 20))
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(Color.TextColor)
                             .offset(x: (showFlags && !conversionFlags.isEmpty) ? -CGFloat(((conversionFlags.count-1)*15)) : 0)
                         Spacer()
                     }
                     .frame(height: !secondAmount.isEmpty ? 40 : 50)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                 }
             }
             if isAdd {
@@ -129,7 +128,7 @@ struct InternationalTransactionTotalView: View {
                 Spacer()
             }
             .frame(height: 50)
-            .background(color.opacity(0.7))
+            .background(Color.DarkBlue)
         }
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))

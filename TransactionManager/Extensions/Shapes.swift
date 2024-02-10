@@ -14,7 +14,7 @@ struct Line: View {
             HStack{
                 Spacer()
             }.frame(height: 1)
-                .background(Color.LightGray)
+                .background(Color.TextColor)
                 .padding(.leading, padding)
     }
 }
@@ -24,6 +24,6 @@ struct VLine: View {
             VStack{
                 Spacer()
             }.frame(width: 1)
-            .background(Color.LightGray)
+            .background(Color.TextColor)
     }
 }

@@ -74,6 +74,7 @@ class TransactionsManager: ObservableObject {
             } catch{
                 print(error.localizedDescription)
             }
+            viewModel.unFilterdData = transactionsArray
             applyFilter(transactionsArray: transactionsArray)
         }else{
             print("Something went wrong")
@@ -115,9 +116,7 @@ class TransactionsManager: ObservableObject {
             HomeViewModel.shared.getAllTransactions()
             viewModel.filterTransactionsData()
             PeopleManager.shared.getPeopleList()
-            let people = viewModel.getPeopleIncluded(people: peopleIncluded)
-            let peopleId = people.map({$0.id})
-            PeopleViewModel.shared.updatePeopleData(transactionCurrencyType: transactionCurrencyType)
+            PeopleViewModel.shared.updatePeopleData()
         })
     }
     

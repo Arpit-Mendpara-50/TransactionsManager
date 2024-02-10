@@ -20,7 +20,7 @@ struct PeopleListView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 15) {
                     ForEach(0..<peopleViewModel.pubPeopleData.count, id: \.self) { index in
-                        PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.extractPersonAmount(amountString: peopleViewModel.pubPeopleData[index].amount), color: Color.white, isAdd: false, isSelectable: isSelectable, onTap: {
+                        PeopleView(id: peopleViewModel.pubPeopleData[index].id, title: peopleViewModel.pubPeopleData[index].personName, image: peopleViewModel.pubPeopleData[index].imagePath, amount: peopleViewModel.extractPersonAmount(amountString: peopleViewModel.pubPeopleData[index].amount), isAdd: false, isSelectable: isSelectable, onTap: {
                             let id = peopleViewModel.pubPeopleData[index].id
                             if !isSelectable {
                                 personTransactionsViewModel.openPeronTransactionListView(person: peopleViewModel.pubPeopleData[index])
@@ -34,7 +34,7 @@ struct PeopleListView: View {
                         })
                     }
                     //MARK:  Default add button
-                    PeopleView(id: 0, title: "Add new member", image: "", amount: "", color: Color.gray, isAdd: true, isSelectable: false) {
+                    PeopleView(id: 0, title: "Add new member", image: "", amount: "", isAdd: true, isSelectable: false) {
                         withAnimation {
                             peopleViewModel.pubShowPeopleCreationView.toggle()
                         }

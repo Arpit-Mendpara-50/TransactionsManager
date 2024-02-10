@@ -3,4 +3,22 @@
    uuid = "A6E9B16C-4096-4E82-AD24-823E097F6904"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8858880E-2BFA-43FE-B2D1-824843DF012D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TransactionManager/Views/Creation/Transactions/CreationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "updateTransaction(transactionId:titleValue:amountValue:categoryValue:descriptionValue:transactionTypeValue:currencyTypeValue:peopleIncluded:createdDateValue:updatedDateValue:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

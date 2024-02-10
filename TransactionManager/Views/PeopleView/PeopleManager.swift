@@ -68,9 +68,6 @@ class PeopleManager: ObservableObject {
                 print(error.localizedDescription)
             }
             viewModel.pubPeopleData = peopleArray
-            if !peopleArray.isEmpty {
-                print("people amount: \(peopleArray[0].amount)")
-            }
             viewModel.pubIsPeopleLoading = false
         }else{
             print("Something went wrong")

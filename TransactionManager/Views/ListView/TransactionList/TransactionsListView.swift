@@ -48,7 +48,7 @@ struct TransactionsListView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .background(Color.white)
+        .background(Color.BackgroundColor)
     }
     
     var header: some View{
@@ -69,7 +69,7 @@ struct TransactionsListView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(viewModel.getTopColor().opacity(0.7))
+        .background(Color.DarkBlue)
         .shadow(radius: 5)
         
     }

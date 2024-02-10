@@ -47,7 +47,7 @@ struct FilterView: View {
                 .padding(.horizontal)
             }
         }.ignoresSafeArea(.all)
-            .background(Color.white)
+            .background(Color.BackgroundColor)
             .onAppear(perform: {
                 selectedMonth = viewModel.pubSelectedMonth
                 selectedYear = viewModel.pubSelectedYear
@@ -85,7 +85,7 @@ struct FilterView: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(Color.DarkBlue)
         .shadow(radius: 5)
         
     }
@@ -207,15 +207,16 @@ struct FilterView: View {
                                 .resizable()
                                 .frame(width: 25, height: 25)
                                 .padding(.leading)
+                                .foregroundStyle(Color.TextColor)
                             
                             Text("Select Category").bold()
                                 .frame(width: 75)
                                 .lineLimit(2)
                             Spacer().frame(width: 10)
                         }
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.TextColor)
                         .frame(height: 80)
-                        .background(Color.white)
+                        .background(Color.SwitchBackgroundColor)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 5)
                     })
@@ -250,6 +251,7 @@ struct FilterView: View {
             HStack {
                 Text("Amount Range: \(Int(selectedRange))")
                     .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(Color.TextColor)
                 Spacer()
             }
             .padding(.top, 20)
@@ -261,9 +263,10 @@ struct FilterView: View {
                         .resizable()
                         .renderingMode(.template)
                         .frame(width: 10, height: 10)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.TextColor)
                     Text("\(helper.currencyCode)0")
                         .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(Color.TextColor)
                 }
                 Spacer()
                 VStack(alignment: .trailing){
@@ -271,9 +274,10 @@ struct FilterView: View {
                         .resizable()
                         .renderingMode(.template)
                         .frame(width: 10, height: 10)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.TextColor)
                     Text("\(helper.currencyCode)\(Int(viewModel.getUpperRangeForSlider()))")
                         .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(Color.TextColor)
                 }
             }
             .offset(y: -15)
@@ -304,7 +308,7 @@ struct FilterView: View {
                 Spacer()
             }
             .padding()
-            .background(Color.DarkBlue.opacity(0.7))
+            .background(Color.DarkBlue)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(radius: 5)
         })

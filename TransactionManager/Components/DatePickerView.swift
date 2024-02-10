@@ -50,19 +50,20 @@ struct DatePickerView: View {
                             .datePickerStyle(.graphical)
                             .labelsHidden()
                             .padding()
+                            .background(Color.BackgroundColor)
                         Spacer()
                     }
-                    .background(Color.PrimaryColor)
+                    .background(Color.BackgroundColor)
                 }
                 .frame(width: ScreenSize.width())
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .background(Color.PrimaryColor)
+                .background(Color.BackgroundColor)
                 .shadow(radius: 3)
                 .zIndex(2)
             }
         }
         .frame(width: ScreenSize.width())
-        .background(Color.white)
+        .background(Color.PrimaryColor)
     }
 
     private let dateFormatter: DateFormatter = {

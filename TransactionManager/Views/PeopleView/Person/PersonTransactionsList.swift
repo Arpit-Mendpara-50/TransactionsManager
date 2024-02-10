@@ -31,7 +31,7 @@ struct PersonTransactionsList: View {
                             .clipShape(Circle())
                     }
                     VStack(alignment: .leading){
-                        Text(person.personName).font(.system(size: 22)).bold().foregroundColor(Color.black)
+                        Text(person.personName).font(.system(size: 22)).bold().foregroundColor(Color.TextColor)
                         Text("\(helper.currencyCode)\(peopleViewModel.extractPersonAmount(amountString: person.amount))").font(.system(size: 16)).bold().foregroundColor(Color.gray)
                     }
                     Spacer()
@@ -43,7 +43,7 @@ struct PersonTransactionsList: View {
             }
         }
         .ignoresSafeArea(.all)
-        .background(Color.white)
+        .background(Color.BackgroundColor)
     }
     
     var header: some View{
@@ -66,7 +66,7 @@ struct PersonTransactionsList: View {
             .padding(.horizontal)
         }
         .frame(height: 60+ScreenSize.safeTop())
-        .background(Color.gray)
+        .background(Color.DarkBlue)
         .shadow(radius: 5)
         
     }

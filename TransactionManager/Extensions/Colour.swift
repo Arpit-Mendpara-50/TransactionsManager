@@ -87,6 +87,10 @@ extension Color {
     static var ThemeSwitchColor: Color  {
         return Color("ThemeSwitchColor")
     }
+    
+    static var TextColor: Color  {
+        return Color("TextColor")
+    }
    
     
     

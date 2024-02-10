@@ -24,10 +24,10 @@ struct InlineFilterView: View {
                             .renderingMode(.template)
                             .resizable()
                             .frame(width: 20, height: 20)
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(Color.TextColor)
                     }
                     .frame(width: 45, height: 45)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                     .clipShape(Circle())
                     .shadow(radius: 5)
                 })
@@ -38,27 +38,30 @@ struct InlineFilterView: View {
                         Text(viewModel.pubSelectedMonth)
                             .bold()
                             .padding(13)
-                            .background(Color.white)
+                            .background(Color.SwitchBackgroundColor)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
+                            .foregroundStyle(Color.TextColor)
                     }
                     
                     if !String(viewModel.pubSelectedYear).isEmpty {
                         Text("\(viewModel.pubSelectedYear)")
                             .bold()
                             .padding(13)
-                            .background(Color.white)
+                            .background(Color.SwitchBackgroundColor)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
+                            .foregroundStyle(Color.TextColor)
                     }
                     
                     if viewModel.pubSelectedRange > 0 {
                         Text("< $\(Int(viewModel.pubSelectedRange))")
                             .bold()
                             .padding(13)
-                            .background(Color.white)
+                            .background(Color.SwitchBackgroundColor)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
+                            .foregroundStyle(Color.TextColor)
                     }
                     
                     if let category = viewModel.pubSelectedCategory {
@@ -85,11 +88,11 @@ struct InlineFilterView: View {
                             .frame(width: 32, height: 32)
                         Text(currencyPickerModel.pubSelectedCurrency.name)
                             .bold()
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(Color.TextColor)
                     }
                     .padding(.vertical, 8)
                     .padding(.horizontal, 10)
-                    .background(Color.white)
+                    .background(Color.SwitchBackgroundColor)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 5)
                 }

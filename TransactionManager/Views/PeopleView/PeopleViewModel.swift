@@ -43,39 +43,27 @@ class PeopleViewModel : ObservableObject {
         return ""
     }
     
-    func updatePeopleData(transactionCurrencyType: Int) {
-        let currency = currencyPickerModel.getCurrencyById(id: transactionCurrencyType)
-        let people = PeopleViewModel.shared.pubPeopleData
-        let allTransactions = TransactionsViewModel.shared.allTransactions
+    func updatePeopleData() {
+        let currencies = currencyPickerModel.currencies
+        let allTransactions = TransactionsViewModel.shared.unFilterdData
         for pubPeopleDatum in pubPeopleData {
-            var preAmountArray = pubPeopleDatum.amount.components(separatedBy: ",")
-            var totalAmount = 0.0
-            for transaction in allTransactions {
-                let peopleIncludedString = transaction.peopleIncluded
-                let peopleIncluded = TransactionsViewModel.shared.getPeopleIncluded(people: peopleIncludedString)
-                if peopleIncluded.contains(where: {$0.id == pubPeopleDatum.id}) {
-                    let amount = Double(transaction.amount) ?? 0.0
-                    let finalAmount = amount / Double(peopleIncluded.count)
-                    totalAmount += finalAmount
+            var finalAmountArray: [String] = []
+            for currency in currencies {
+                var totalAmount = 0.0
+                for transaction in allTransactions {
+                    let peopleIncludedString = transaction.peopleIncluded
+                    let peopleIncluded = TransactionsViewModel.shared.getPeopleIncluded(people: peopleIncludedString)
+                    if transaction.currencyType == currency.id {
+                        if peopleIncluded.contains(where: {$0.id == pubPeopleDatum.id}) {
+                            let amount = Double(transaction.amount) ?? 0.0
+                            let finalAmount = amount / Double(peopleIncluded.count)
+                            totalAmount += finalAmount
+                        }
+                    }
                 }
+                finalAmountArray.append(currency.name + String(format: "%.2f", totalAmount))
+                PeopleManager.shared.updatePerson(personId: pubPeopleDatum.id, nameValue: pubPeopleDatum.personName, imageValue: pubPeopleDatum.imagePath, amountValue: finalAmountArray.joined(separator: ","), createdDateValue: pubPeopleDatum.createdDate, updatedDateValue: Date().ISO8601Format())
             }
-            
-            if pubPeopleDatum.amount.isEmpty || pubPeopleDatum.amount == "0.0" {
-                preAmountArray.append(currency.name + String(format: "%.2f", totalAmount))
-            } else {
-                let preAmountString = pubPeopleDatum.amount
-                let preAmount = preAmountArray.first(where: {$0.contains(currency.name)})
-                if let preAmount = preAmount {
-                    let appendStringAmount = currency.name + String(format: "%.2f", totalAmount)
-                    preAmountArray = preAmountArray.filter({$0 != preAmount})
-                    preAmountArray.append(appendStringAmount)
-                } else {
-                    let appendStringAmount = currency.name + String(format: "%.2f", totalAmount)
-                    preAmountArray.append(appendStringAmount)
-                }
-            }
-            
-            PeopleManager.shared.updatePerson(personId: pubPeopleDatum.id, nameValue: pubPeopleDatum.personName, imageValue: pubPeopleDatum.imagePath, amountValue: preAmountArray.joined(separator: ","), createdDateValue: pubPeopleDatum.createdDate, updatedDateValue: Date().ISO8601Format())
         }
     }
     

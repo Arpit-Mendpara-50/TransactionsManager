@@ -13,7 +13,6 @@ struct PeopleView: View {
     var title: String
     var image: String
     var amount: String
-    var color: Color
     var isAdd: Bool
     var isSelectable: Bool
     var onTap: (()->Void)?
@@ -28,13 +27,13 @@ struct PeopleView: View {
                         .renderingMode(.template)
                         .resizable()
                         .frame(width: 50, height: 50)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.TextColor)
                     Spacer().frame(height: 5)
                     Text(title)
                         .bold()
                         .lineLimit(2)
                         .frame(height: 55)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.TextColor)
                     Spacer()
                 } else {
                     ZStack {
@@ -50,8 +49,10 @@ struct PeopleView: View {
                             Spacer().frame(height: 15)
                             Text(title)
                                 .bold()
+                                .foregroundStyle(Color.TextColor)
                             Text(Helper.shared.currencyCode+amount)
                                 .bold()
+                                .foregroundStyle(Color.TextColor)
                             Spacer()
                         }
                         if isSelectable && creationViewModel.pubSelectedPeopleID.contains(id){
@@ -78,9 +79,8 @@ struct PeopleView: View {
                     }
                 }
             }
-            .foregroundStyle(Color.black)
             .frame(width: 130, height: 130)
-            .background(color)
+            .background(Color.SwitchBackgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(radius: 5)
             .padding(.vertical, 10)
